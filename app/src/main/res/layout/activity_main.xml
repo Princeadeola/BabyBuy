@@ -43,11 +43,13 @@
                 />
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#00599A"
-                android:text="Next"
-                />
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_shape_capsule"
+                android:padding="8dp"
+                android:text="Text Selector"
+                android:textColor="@drawable/btn_txt_selector" />
 
         </LinearLayout>
 
