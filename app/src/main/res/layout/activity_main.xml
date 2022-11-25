@@ -1,49 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/pregnant_mom"
-    >
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="173dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        app:cardCornerRadius="18dp"
         >
 
-        <TextView
-            android:id="@+id/splash1ID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/splash_screen_one_text"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/layout01ID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg01"
+            >
 
-        <TextView
-            android:id="@+id/splash2ID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/splash_screen_two_text"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif-condensed"
-            android:letterSpacing=".1"
-            android:layout_below="@id/splash1ID"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                >
 
-        <Button
-            android:id="@+id/btnTxtSelector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_below="@id/splash2ID"
-            android:background="@drawable/btn_shape_capsule"
-            android:text="Text Selector" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
 
-    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Join as a family or individual"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:textColor="#fff"/>
 
-</RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A parent who wants to create one account for the family."
+                        android:textSize="20dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#fff"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

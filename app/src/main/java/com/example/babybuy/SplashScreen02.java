@@ -2,25 +2,24 @@ package com.example.babybuy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SplashScreen01 extends AppCompatActivity {
-    Button btn01;
+public class SplashScreen02 extends AppCompatActivity {
+    Button splash02Btn02;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen01);
+        setContentView(R.layout.activity_splash_screen02);
 
-        btn01 = findViewById(R.id.button01ID);
-        btn01.setOnClickListener(new View.OnClickListener() {
+        splash02Btn02 = findViewById(R.id.button02ID);
+        splash02Btn02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SplashScreen01.this, SplashScreen02.class);
+                Intent intent = new Intent(SplashScreen02.this, MainActivity.class);
                 startActivity(intent);
             }
         });

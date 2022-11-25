@@ -5,9 +5,13 @@
       <map>
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/btn_selector_shape.xml" value="0.2355" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/btn_shape_capsule.xml" value="0.2355" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/card_bg02.xml" value="0.2555" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/cardbg.xml" value="0.2555" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/cardbg01.xml" value="0.2545" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/rounded_button.xml" value="0.2355" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/layout/activity_splash_screen01.xml" value="0.25" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/layout/activity_splash_screen02.xml" value="0.25" />
       </map>
     </option>
   </component>

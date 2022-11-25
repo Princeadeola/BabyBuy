@@ -4,41 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/image01"
+    android:background="@drawable/image02"
     tools:context=".SplashScreen01">
 
     <TextView
-        android:id="@+id/sp01text01ID"
-        android:layout_width="363dp"
+        android:id="@+id/sp02text01ID"
+        android:layout_width="364dp"
         android:layout_height="88dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:text="Create list for your newborn as a family "
+        android:text="Send list to friends and family members"
         android:textColor="#FFFFFF"
         android:textSize="34dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/sp01text02ID"
+        app:layout_constraintBottom_toTopOf="@+id/sp02text02ID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/sp01text02ID"
-        android:layout_width="362dp"
-        android:layout_height="69dp"
+        android:id="@+id/sp02text02ID"
+        android:layout_width="360dp"
+        android:layout_height="72dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="Lörem ipsum karade hypotening korad kror hiv. Taling sesk i tateliga nysk, didossade. Tinade osk jobaskap vid. "
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/button01ID"
+        app:layout_constraintBottom_toTopOf="@+id/button02ID"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button01ID"
+        android:id="@+id/button02ID"
         android:layout_width="361dp"
         android:layout_height="57dp"
         android:layout_marginStart="16dp"
@@ -48,5 +48,6 @@
         android:text="Get started"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
