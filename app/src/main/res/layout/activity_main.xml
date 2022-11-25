@@ -16,23 +16,24 @@
         android:alpha="0.7"
         >
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:backgroundTintMode="src_atop"
+
             >
 
             <TextView
+                android:id="@+id/splash1ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/splash_screen_one_text"
-                android:textSize="30sp"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                />
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/splash2ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/splash_screen_two_text"
@@ -40,18 +41,19 @@
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif-condensed"
                 android:letterSpacing=".1"
+                android:layout_below="@id/splash1ID"
                 />
 
             <Button
+                android:id="@+id/btnTxtSelector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/btn_shape_capsule"
                 android:padding="8dp"
-                android:text="Text Selector"
-                android:textColor="@drawable/btn_txt_selector" />
+                android:layout_below="@id/splash2ID"
+                android:background="@drawable/btn_shape_capsule"
+                android:text="Text Selector" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
