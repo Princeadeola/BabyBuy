@@ -3,12 +3,15 @@ package com.example.babybuy;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     CardView individualCard, familyCard, guestCard;
+    TextView loginText;
 
 
     @Override
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         individualCard = findViewById(R.id.individualCardID);
         familyCard = findViewById(R.id.familyCardID);
         guestCard = findViewById(R.id.guestCardID);
+        loginText = findViewById(R.id.loginTextID);
 
         individualCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Guest Card clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        loginText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HaveAnAccount.class);
+                startActivity(intent);
             }
         });
     }
