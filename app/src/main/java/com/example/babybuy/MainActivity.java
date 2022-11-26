@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
     CardView individualCard, familyCard, guestCard;
     TextView loginText;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
