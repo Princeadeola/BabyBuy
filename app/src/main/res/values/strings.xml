@@ -7,9 +7,11 @@
     <string name="splash_screen_01_title">Create list for your newborn as a family</string>
     <string name="splash_screen_02_title">Send list to friends and family members</string>
     <string name="already_have_an_account">Already have an account?</string>
-    <string name="login">Login</string>
+    <string name="login"><u>Login</u></string>
     <string name="select_profile_type">Select Profile Type</string>
     <string name="register">Register</string>
     <string name="do_not_not_have_an_account">Do not not have an account?</string>
     <string name="forgot_password"><u>Forgot password?</u></string>
+    <string name="create_account"><u>Create Account</u></string>
+    <string name="back_to_login"><u>Back to Login</u></string>
 </resources>
