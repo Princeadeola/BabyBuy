@@ -12,16 +12,49 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:text="Welcome back!"
+        android:text="New account"
         android:textColor="@color/text_black"
         android:textSize="35sp"
         android:textStyle="bold" />
 
     <RelativeLayout
-        android:id="@+id/phoneNumberContainerID"
+        android:id="@+id/EmailContainerID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/greetingID">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/EmailLayoutContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:helperText="required"
+            app:helperTextTextColor="@color/light_red">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EmailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="#A0A6A9"
+                android:hint="Enter Email Address"
+                android:inputType="number"
+                android:lines="1"
+                android:padding="10dp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/phoneNumberContainerID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EmailContainerID">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneLayoutContainer"
@@ -40,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:backgroundTint="#A0A6A9"
-                android:hint="Phone Number"
+                android:hint="Enter Phone Number"
                 android:inputType="number"
                 android:lines="1"
                 android:padding="10dp" />
@@ -78,25 +111,62 @@
                 android:lines="1"
                 android:maxLength="16"
                 android:inputType="textPassword"
-                android:hint="Password"/>
+                android:hint="Enter New Password"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
 
-    <TextView
-        android:id="@+id/forgotPasswordID"
+    <LinearLayout
+        android:id="@+id/termsTxtID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordCContainerID"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/forgot_password"
-        android:textColor="@color/light_red"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:text="By clicking "
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:text="Create an Account "
+            android:textColor="@color/light_red"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Below, you agree to Babybuy’s "
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Terms and Policy?"
+            android:textColor="@color/light_red"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtnID"
@@ -108,7 +178,7 @@
         android:background="@drawable/inactive_rounded_button"
         android:text="Login"
         android:textColor="#A0A6A9"
-        android:layout_below="@id/forgotPasswordID"
+        android:layout_below="@id/termsTxtID"
         />
 
     <LinearLayout
