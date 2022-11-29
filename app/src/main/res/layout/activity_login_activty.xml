@@ -15,32 +15,53 @@
         android:textStyle="bold"
         android:textColor="#000000"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/phoneNumberID"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/greetingID"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rounded_edit_text_view"
-        android:layout_marginTop="30dp"
-        android:padding="10dp"
-        android:hint="Hello World" />
-
     <RelativeLayout
+        android:id="@+id/phoneNumberContainerID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/phoneNumberID">
+        android:layout_below="@id/greetingID">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordContainer"
+            android:id="@+id/phoneLayoutContainer"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginHorizontal="20dp"
             app:helperText="required"
-            app:helperTextTextColor="@android:color/holo_red_dark"
+            app:helperTextTextColor="#C71051"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            android:layout_marginTop="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:lines="1"
+                android:inputType="number"
+                android:padding="10dp"
+                android:hint="Phone Number"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/passwordCContainerID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneNumberContainerID">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayoutContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            app:helperText="required"
+            app:helperTextTextColor="#C71051"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -53,7 +74,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="60dp"
                 android:lines="1"
                 android:maxLength="16"
                 android:inputType="textPassword"
@@ -61,10 +82,33 @@
 
 
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
     </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/forgotPasswordID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#C71051"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/passwordCContainerID"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginBtnID"
+        android:layout_width="361dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Get started"
+        android:layout_below="@id/forgotPasswordID"/>
 
 
 </RelativeLayout>
