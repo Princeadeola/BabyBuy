@@ -2,4 +2,13 @@
     <string name="app_name">BabyBuy</string>
     <string name="splash_screen_one_text">Create list for your newborn as a family</string>
     <string name="splash_screen_two_text">Lörem ipsum karade hypotening korad kror hiv. Taling sesk i tateliga nysk, didossade. Tinade osk jobaskap vid.</string>
+    <string name="splash_screen_02_text">Share your list with families and friends, multiple hands makes the work faster than one hand. Get your list across with them by simple clicks.</string>
+    <string name="splash_screen_01_text">It is every mothers love to make sure her child does not miss anything needed. Create lists and also view suggested parenting lists.</string>
+    <string name="splash_screen_01_title">Create list for your newborn as a family</string>
+    <string name="splash_screen_02_title">Send list to friends and family members</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login">Login</string>
+    <string name="select_profile_type">Select Profile Type</string>
+    <string name="register">Register</string>
+    <string name="do_not_not_have_an_account">Do not not have an account?</string>
 </resources>
