@@ -7,15 +7,64 @@
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/greetingID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Welcome back!"
         android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="#000000"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
         />
 
-    
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/phoneNumberID"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/greetingID"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rounded_edit_text_view"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:hint="Hello World" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneNumberID">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            app:helperText="required"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="16"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:maxLength="16"
+                android:inputType="textPassword"
+                android:hint="Password"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

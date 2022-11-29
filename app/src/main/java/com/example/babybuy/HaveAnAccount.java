@@ -27,6 +27,8 @@ public class HaveAnAccount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(HaveAnAccount.this, "Individual Card clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HaveAnAccount.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 
