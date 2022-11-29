@@ -14,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:text="Create list for your newborn as a family "
+        android:text="@string/splash_screen_01_title"
         android:textColor="#FFFFFF"
         android:textSize="34dp"
         android:textStyle="bold"
@@ -29,7 +29,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:text="Lörem ipsum karade hypotening korad kror hiv. Taling sesk i tateliga nysk, didossade. Tinade osk jobaskap vid. "
+        android:text="@string/splash_screen_01_text"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/button01ID"
@@ -37,13 +37,13 @@
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button01ID"
         android:layout_width="361dp"
         android:layout_height="57dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/rounded_button"
         android:text="Get started"
         app:layout_constraintBottom_toBottomOf="parent"
