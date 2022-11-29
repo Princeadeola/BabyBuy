@@ -118,55 +118,21 @@
     </RelativeLayout>
 
 
-    <LinearLayout
-        android:id="@+id/termsTxtID"
+    <TextView
+        android:id="@+id/termTxtID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordCContainerID"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        >
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:text="By clicking Create an Account Below, you agree to BabyBuy’s Terms and Policy?"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:text="By clicking "
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:text="Create an Account "
-            android:textColor="@color/light_red"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="Below, you agree to Babybuy’s "
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="Terms and Policy?"
-            android:textColor="@color/light_red"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtnID"
@@ -178,7 +144,7 @@
         android:background="@drawable/inactive_rounded_button"
         android:text="Login"
         android:textColor="#A0A6A9"
-        android:layout_below="@id/termsTxtID"
+        android:layout_below="@id/termTxtID"
         />
 
     <LinearLayout
