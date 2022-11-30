@@ -170,6 +170,19 @@
         android:text="Sign up with google"
         android:textColor="#A0A6A9" />
 
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MATERIAL BUTTON"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:backgroundTint="@color/black"
+        app:cornerRadius="8dp"
+        app:rippleColor="#33000000"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
