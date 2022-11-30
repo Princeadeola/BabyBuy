@@ -45,6 +45,12 @@ public class CreateAccount extends AppCompatActivity {
             public void onClick(@NonNull View view) {
                 Toast.makeText(CreateAccount.this, "Terms Clicked", Toast.LENGTH_SHORT).show();
             }
+
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setColor(Color.RED);
+            }
         };
 
         ss.setSpan(cs01, 12, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

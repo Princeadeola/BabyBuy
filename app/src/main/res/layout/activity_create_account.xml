@@ -124,14 +124,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordCContainerID"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:text="By clicking Create an Account Below, you agree to BabyBuy’s Terms and Policy?"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textAlignment="textStart"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        />
+        android:text="By clicking Create an Account Below, you agree to BabyBuy’s Terms and Policy?"
+        android:textAlignment="textStart"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -143,7 +142,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/inactive_rounded_button"
-        android:text="Login"
+        android:text="Create an account"
         android:textColor="#A0A6A9" />
 
 
