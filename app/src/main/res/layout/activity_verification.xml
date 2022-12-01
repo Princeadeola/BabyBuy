@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerificationActivity">
+    tools:context=".LoginActivity"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/verifyTxtID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:text="Verify Account!"
+        android:textColor="@color/text_black"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/verifyTxt2ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="We will send a confirmation code to your number 2347084****14"
+        android:textColor="@color/text_black"
+        android:textSize="15sp"
+        android:layout_below="@id/verifyTxtID"/>
+
+    <LinearLayout
+        android:id="@+id/verifyBoxLayoutID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/verifyTxt2ID"
+        android:weightSum="4"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:minLines="1"
+            android:textSize="30sp"
+            android:textColor="#000"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_verify_border"
+            android:textStyle="bold"
+            android:inputType="number"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/forgotPasswordID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/verifyBoxLayoutID"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/forgot_password"
+        android:textColor="@color/light_red"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginBtnID"
+        android:layout_width="361dp"
+        android:layout_height="57dp"
+        android:layout_below="@id/forgotPasswordID"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/inactive_rounded_button"
+        android:text="Login"
+        android:textColor="#A0A6A9" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Account?"
+            android:textColor="@color/text_black"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/createAccountFromLoginTxtID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_account"
+            android:textColor="@color/light_red"
+            android:textSize="20sp"
+            android:paddingStart="5dp"
+            android:layout_marginBottom="40dp"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
