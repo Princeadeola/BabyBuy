@@ -42,6 +42,7 @@
         >
 
         <EditText
+            android:id="@+id/otp01ID"
             android:layout_width="60dp"
             android:layout_height="80dp"
             android:layout_marginEnd="10dp"
@@ -58,6 +59,7 @@
             />
 
         <EditText
+            android:id="@+id/otp02ID"
             android:layout_width="60dp"
             android:layout_height="80dp"
             android:layout_marginEnd="10dp"
@@ -73,6 +75,7 @@
             />
 
         <EditText
+            android:id="@+id/otp03ID"
             android:layout_width="60dp"
             android:layout_height="80dp"
             android:layout_marginEnd="10dp"
@@ -88,6 +91,7 @@
             />
 
         <EditText
+            android:id="@+id/otp04ID"
             android:layout_width="60dp"
             android:layout_height="80dp"
             android:layout_marginEnd="10dp"
@@ -106,7 +110,7 @@
 
 
     <TextView
-        android:id="@+id/forgotPasswordID"
+        android:id="@+id/resendOTPBtnID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/verifyBoxLayoutID"
@@ -119,10 +123,10 @@
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginBtnID"
+        android:id="@+id/verifyBtnID"
         android:layout_width="361dp"
         android:layout_height="57dp"
-        android:layout_below="@id/forgotPasswordID"
+        android:layout_below="@id/resendOTPBtnID"
         android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
