@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    >
 
     <TextView
         android:id="@+id/greetingID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:text="Welcome back!"
         android:textColor="@color/text_black"
         android:textSize="35sp"
@@ -30,22 +31,21 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="10"
-            app:helperText="required"
-            app:helperTextTextColor="@color/light_red">
+            app:helperText=""
+            app:helperTextTextColor="@color/light_red"
+            app:boxStrokeColor="@color/borderColor"
+            app:hintTextColor="@color/borderColor"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneEditText"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:backgroundTint="#A0A6A9"
-                android:hint="Phone Number"
+                android:hint="Enter Phone Number"
                 android:inputType="number"
                 android:lines="1"
                 android:padding="10dp" />
-
-
         </com.google.android.material.textfield.TextInputLayout>
 
     </RelativeLayout>
@@ -54,33 +54,30 @@
         android:id="@+id/passwordCContainerID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/phoneNumberContainerID">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordLayoutContainer"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginHorizontal="20dp"
-            app:helperText="required"
-            app:helperTextTextColor="@color/light_red"
+            app:helperText=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="16"
             app:passwordToggleEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:boxStrokeColor="@color/borderColor"
+            app:hintTextColor="@color/borderColor">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:lines="1"
-                android:maxLength="16"
                 android:inputType="textPassword"
-                android:hint="Password"/>
-
-
+                android:hint="Enter Password"/>
         </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
@@ -102,14 +99,13 @@
         android:id="@+id/loginBtnID"
         android:layout_width="361dp"
         android:layout_height="57dp"
+        android:layout_below="@id/forgotPasswordID"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/inactive_rounded_button"
         android:text="Login"
-        android:textColor="#A0A6A9"
-        android:layout_below="@id/forgotPasswordID"
-        />
+        android:textColor="#A0A6A9" />
 
     <LinearLayout
         android:layout_width="wrap_content"
