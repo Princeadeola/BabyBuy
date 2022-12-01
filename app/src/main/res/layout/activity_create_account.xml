@@ -30,9 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="10"
-            app:helperText="required"
+            app:boxStrokeColor="@color/borderColor"
+            app:hintTextColor="@color/borderColor"
+            app:helperText=""
             app:helperTextTextColor="@color/light_red">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -63,9 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="10"
-            app:helperText="required"
+            app:boxStrokeColor="@color/borderColor"
+            app:hintTextColor="@color/borderColor"
+            app:helperText=""
             app:helperTextTextColor="@color/light_red">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -93,13 +93,13 @@
             android:id="@+id/passwordLayoutContainer"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginHorizontal="20dp"
-            app:helperText="required"
+            app:helperText=""
             app:helperTextTextColor="@color/light_red"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="16"
+            app:boxStrokeColor="@color/borderColor"
+            app:hintTextColor="@color/borderColor"
             app:passwordToggleEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
