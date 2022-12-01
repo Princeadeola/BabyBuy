@@ -134,7 +134,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginBtnID"
+        android:id="@+id/createAccountBtnID"
         android:layout_width="361dp"
         android:layout_height="57dp"
         android:layout_below="@id/termTxtID"
@@ -150,7 +150,7 @@
         android:id="@+id/orTxtID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginBtnID"
+        android:layout_below="@id/createAccountBtnID"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="or"

@@ -3,6 +3,7 @@ package com.example.babybuy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -11,11 +12,13 @@ import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class CreateAccount extends AppCompatActivity {
     TextView termTxt;
+    Button createAccountBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class CreateAccount extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
 
         termTxt = findViewById(R.id.termTxtID);
+        createAccountBtn =  findViewById(R.id.createAccountBtnID);
+
+        // selecting part of a text and clicking on part of a text
         String text = "By clicking Create an Account Below, you agree to BabyBuy’s Terms and Policy?";
         SpannableString ss = new SpannableString(text);
 
@@ -57,5 +63,18 @@ public class CreateAccount extends AppCompatActivity {
         ss.setSpan(cs02, 60, 76, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termTxt.setText(ss);
         termTxt.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+        // when the create account button is clicked
+        createAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreateAccount.this, VerificationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
+
 }
