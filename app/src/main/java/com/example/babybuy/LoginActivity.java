@@ -61,9 +61,9 @@ public class LoginActivity extends AppCompatActivity {
                 String phoneNumber = charSequence.toString();
 
                 if (phoneNumber.length() >= 15){
-                    phoneLayout.setError("Not a valid phone number");
+//                    phoneLayout.setError("Not a valid phone number");
                 }else {
-                    phoneLayout.setError("");
+//                    phoneLayout.setError("");
                 }
             }
 
