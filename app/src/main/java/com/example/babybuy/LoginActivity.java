@@ -2,11 +2,17 @@ package com.example.babybuy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -19,7 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     TextView forgotPasswordTxt, createAccountTxt;
     TextInputLayout phoneLayout, passwordLayout;
     TextInputEditText phoneEditText, passwordEditText;
-
+    Button loginBtn;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         phoneEditText = findViewById(R.id.phoneEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         passwordLayout = findViewById(R.id.passwordLayoutContainer);
+        loginBtn = findViewById(R.id.loginBtnID);
 
         forgotPasswordTxt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,5 +113,40 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        //if the user enters a wrong password and click login Button
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    private void showWrongPasswordDialog(String login, String text01, String text02){
+        Button resetPasswordBtn;
+        ImageView wrongPasswordImg;
+        TextView text1, text2;
+
+        resetPasswordBtn = findViewById(R.id.resetPasswordBtnID);
+
+        dialog = new Dialog(LoginActivity.this);
+        dialog.setContentView(R.layout.incorrect_password_dialog);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        Window window = dialog.getWindow();
+        window.setGravity(Gravity.CENTER);
+//        window.getAttributes().windowAnimations = R.style.slide_up_dialog_animation;
+
+        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.setCancelable(true);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialog.show();
     }
 }
