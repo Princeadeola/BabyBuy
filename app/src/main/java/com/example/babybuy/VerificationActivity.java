@@ -114,6 +114,7 @@ public class VerificationActivity extends AppCompatActivity {
                 keyboard(otp04); //put keyboard on next box
             }else {
                 verifyBtn.setBackgroundColor(R.drawable.rounded_button);
+//                verifyBtn.setBackground(R.drawable.);
             }
 
         }
