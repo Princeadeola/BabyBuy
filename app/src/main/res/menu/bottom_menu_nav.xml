@@ -4,25 +4,25 @@
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/rounded_verify_border"
+        android:icon="@drawable/home_nav"
         />
 
     <item
-        android:id="@+id/list"
+        android:id="@+id/myList"
         android:title="My List"
-        android:icon="@drawable/rounded_verify_border"
+        android:icon="@drawable/mylist_nav"
         />
 
     <item
         android:id="@+id/assigned"
         android:title="Assigned"
-        android:icon="@drawable/rounded_verify_border"
+        android:icon="@drawable/assigned_nav"
         />
 
     <item
         android:id="@+id/profile"
         android:title="Profile"
-        android:icon="@drawable/rounded_verify_border"
+        android:icon="@drawable/profile_nav"
         />
 
 </menu>

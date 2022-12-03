@@ -2,6 +2,9 @@ package com.example.babybuy;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,47 +12,59 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.babybuy.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
-    CardView individualCard, familyCard, guestCard;
-    TextView loginText;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        getCurrentFragment(new HomeFragment());
 
-//        individualCard = findViewById(R.id.individualCardID);
-//        familyCard = findViewById(R.id.familyCardID);
-//        guestCard = findViewById(R.id.guestCardID);
-//        loginText = findViewById(R.id.loginTextID);
-//
-//        individualCard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "Individual Card clicked", Toast.LENGTH_SHORT).show();
+//        binding.bottomNavID.setOnItemReselectedListener(item -> {
+//            switch (item.getItemId()){
+//                case R.id.home:
+//                    getCurrentFragment(new HomeFragment());
+//                    break;
+//                case R.id.myList:
+//                    break;
+//                case R.id.assigned:
+//                    break;
+//                case R.id.profile:
+//                    getCurrentFragment(new ProfileFragment());
+//                    break;
 //            }
 //        });
-//
-//        familyCard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "Family Card clicked", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        guestCard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "Guest Card clicked", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        loginText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, HaveAnAccount.class);
-//                startActivity(intent);
-//            }
-//        });
+    }
+
+    private void getCurrentFragment(Fragment fragment){
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+
+        transaction.replace(R.id.frameLayoutID, fragment);
+        transaction.commit();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();c
+
+        binding.bottomNavID.setOnItemReselectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.home:
+                    getCurrentFragment(new HomeFragment());
+                    break;
+                case R.id.myList:
+                    break;
+                case R.id.assigned:
+                    break;
+                case R.id.profile:
+                    getCurrentFragment(new ProfileFragment());
+                    break;
+            }
+        });
     }
 }
