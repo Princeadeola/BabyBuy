@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,209 +8,24 @@
     android:layout_gravity="center"
     tools:context=".MainActivity">
 
-<!--    <TextView-->
-<!--        android:layout_marginTop="80dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/select_profile_type"-->
-<!--        android:textStyle="bold"-->
-<!--        android:textSize="35sp"-->
-<!--        android:textColor="#000000"-->
-<!--        />-->
+    <FrameLayout
+        android:id="@+id/frameLayoutID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_above="@id/bottomNavID"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        />
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/individualCardID"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="173dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        app:cardCornerRadius="18dp"-->
-<!--        android:clickable="true"-->
-<!--        android:focusable="true"-->
-<!--        android:checkable="true"-->
-<!--        >-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        app:menu="@menu/bottom_menu_nav"
+        />
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layout01ID"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            android:background="@drawable/card_bg01"-->
-<!--            >-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:layout_marginStart="30dp"-->
-<!--                android:layout_marginBottom="20dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_marginEnd="30dp"-->
-<!--                >-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Join as a family or individual"-->
-<!--                        android:textSize="23dp"-->
-<!--                        android:textStyle="bold"-->
-<!--                        android:textColor="#000000"/>-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="A parent who wants to create one account for the family."-->
-<!--                        android:textSize="20dp"-->
-<!--                        android:paddingTop="10dp"-->
-<!--                        android:textColor="#000000"/>-->
-<!--                </LinearLayout>-->
-<!--            </LinearLayout>-->
-<!--        </LinearLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
-
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/familyCardID"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="173dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        app:cardCornerRadius="18dp"-->
-<!--        >-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layout02ID"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            android:background="@drawable/card_bg02"-->
-<!--            >-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:layout_marginStart="30dp"-->
-<!--                android:layout_marginBottom="20dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_marginEnd="30dp"-->
-<!--                >-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Join as a family member"-->
-<!--                        android:textSize="23dp"-->
-<!--                        android:textStyle="bold"-->
-<!--                        android:textColor="#000000"/>-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="A family member or friend who received an invitation."-->
-<!--                        android:textSize="20dp"-->
-<!--                        android:paddingTop="10dp"-->
-<!--                        android:textColor="#000000"/>-->
-<!--                </LinearLayout>-->
-<!--            </LinearLayout>-->
-<!--        </LinearLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
-
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/guestCardID"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="173dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        app:cardCornerRadius="18dp"-->
-<!--        >-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layout03ID"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            android:background="@drawable/card_bg03"-->
-<!--            >-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:layout_marginStart="30dp"-->
-<!--                android:layout_marginBottom="20dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_marginEnd="30dp"-->
-<!--                >-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Continue as a guest"-->
-<!--                        android:textSize="23dp"-->
-<!--                        android:textStyle="bold"-->
-<!--                        android:textColor="#000000"/>-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="An individual who do not want to create an account yet."-->
-<!--                        android:textSize="20dp"-->
-<!--                        android:paddingTop="10dp"-->
-<!--                        android:textColor="#000000"/>-->
-<!--                </LinearLayout>-->
-<!--            </LinearLayout>-->
-<!--        </LinearLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
-
-<!--    <LinearLayout-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        >-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/already_have_an_account"-->
-<!--            android:textSize="20sp"-->
-<!--            />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/loginTextID"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/login"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textColor="#EA0808"-->
-<!--            />-->
-<!--    </LinearLayout>-->
-
-</LinearLayout>
+</RelativeLayout>

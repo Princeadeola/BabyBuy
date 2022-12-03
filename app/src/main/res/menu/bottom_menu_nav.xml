@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/rounded_verify_border"
+        />
+
+    <item
+        android:id="@+id/list"
+        android:title="My List"
+        android:icon="@drawable/rounded_verify_border"
+        />
+
+    <item
+        android:id="@+id/assigned"
+        android:title="Assigned"
+        android:icon="@drawable/rounded_verify_border"
+        />
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/rounded_verify_border"
+        />
+
+</menu>
