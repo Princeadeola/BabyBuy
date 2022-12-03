@@ -50,21 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        super.onStart();c
-
-        binding.bottomNavID.setOnItemReselectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.home:
-                    getCurrentFragment(new HomeFragment());
-                    break;
-                case R.id.myList:
-                    break;
-                case R.id.assigned:
-                    break;
-                case R.id.profile:
-                    getCurrentFragment(new ProfileFragment());
-                    break;
-            }
-        });
+        super.onStart();
     }
 }
