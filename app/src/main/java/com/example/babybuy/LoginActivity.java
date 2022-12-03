@@ -118,17 +118,21 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                showWrongPasswordDialog("login", "Forget Password", "Did you forget it", "Reset");
             }
         });
     }
 
-    private void showWrongPasswordDialog(String login, String text01, String text02){
+    private void showWrongPasswordDialog(String login, String text01, String text02, String text03){
         Button resetPasswordBtn;
         ImageView wrongPasswordImg;
-        TextView text1, text2;
+        TextView text1, text2, text3;
 
         resetPasswordBtn = findViewById(R.id.resetPasswordBtnID);
+        wrongPasswordImg = findViewById(R.id.wrongPasswordImgID);
+        text1 = findViewById(R.id.incorrectPasswordTxtID);
+        text2 = findViewById(R.id.forgotPasswordTxtID);
+        text3 = findViewById(R.id.resetPasswordTxtID);
 
         dialog = new Dialog(LoginActivity.this);
         dialog.setContentView(R.layout.incorrect_password_dialog);
@@ -136,14 +140,24 @@ public class LoginActivity extends AppCompatActivity {
 
         Window window = dialog.getWindow();
         window.setGravity(Gravity.CENTER);
-//        window.getAttributes().windowAnimations = R.style.slide_up_dialog_animation;
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
+//        text1.setText(text01);
+//        text2.setText(text02);
+//        text3.setText(text03);
+
+//        if (login.equals("login")){
+//            wrongPasswordImg.setImageResource(R.drawable.incorrect_password_retry);
+//            text1.setTextColor(getResources().getColor(R.color.light_red));
+//            resetPasswordBtn.setBackgroundResource(R.drawable.blue_border_colored_bg);
+//        }
+
+//        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.dismiss();
+//            }
+//        });
 
         dialog.setCancelable(true);
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
