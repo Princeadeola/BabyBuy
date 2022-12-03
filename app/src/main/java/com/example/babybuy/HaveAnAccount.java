@@ -42,14 +42,15 @@ public class HaveAnAccount extends AppCompatActivity {
         guestCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(HaveAnAccount.this, "Guest Card clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HaveAnAccount.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HaveAnAccount.this, MainActivity.class);
+                Intent intent = new Intent(HaveAnAccount.this, CreateAccount.class);
                 startActivity(intent);
             }
         });

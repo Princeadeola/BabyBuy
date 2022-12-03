@@ -3,6 +3,7 @@ package com.example.babybuy;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -84,6 +85,10 @@ public class VerificationActivity extends AppCompatActivity {
                         otp04.setBackgroundColor(R.drawable.rounded_verify_box);
                     }
                 }
+
+                // write logic for when the verification is correct
+                Intent intent = new Intent(VerificationActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

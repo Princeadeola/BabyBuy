@@ -61,7 +61,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Sign In as a parent or individual"
+                        android:text="Sign In as a parent"
                         android:textSize="23dp"
                         android:textStyle="bold"
                         android:textColor="#000000"/>
@@ -116,7 +116,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Sign in as a family member"
+                        android:text="Join using Invitation Code"
                         android:textSize="23dp"
                         android:textStyle="bold"
                         android:textColor="#000000"/>

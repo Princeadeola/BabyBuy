@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CreateAccount extends AppCompatActivity {
-    TextView termTxt;
+    TextView termTxt, loginTextFromCreateAccount;
     Button createAccountBtn;
 
     @Override
@@ -27,6 +27,15 @@ public class CreateAccount extends AppCompatActivity {
 
         termTxt = findViewById(R.id.termTxtID);
         createAccountBtn =  findViewById(R.id.createAccountBtnID);
+        loginTextFromCreateAccount = findViewById(R.id.loginFromCreateAccountTxtID);
+
+        loginTextFromCreateAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreateAccount.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // selecting part of a text and clicking on part of a text
         String text = "By clicking Create an Account Below, you agree to BabyBuy’s Terms and Policy?";

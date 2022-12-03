@@ -19,7 +19,7 @@ public class SplashScreen02 extends AppCompatActivity {
         splash02Btn02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SplashScreen02.this, LoginActivity.class);
+                Intent intent = new Intent(SplashScreen02.this, HaveAnAccount.class);
                 startActivity(intent);
             }
         });

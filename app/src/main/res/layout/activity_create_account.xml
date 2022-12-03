@@ -178,16 +178,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Account?"
+            android:text="Already have an account?"
             android:textColor="@color/text_black"
             android:textSize="20sp"
             />
 
         <TextView
-            android:id="@+id/createAccountFromLoginTxtID"
+            android:id="@+id/loginFromCreateAccountTxtID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/create_account"
+            android:text="@string/login"
             android:textColor="@color/light_red"
             android:textSize="20sp"
             android:paddingStart="5dp"
