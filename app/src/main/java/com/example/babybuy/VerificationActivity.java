@@ -65,9 +65,24 @@ public class VerificationActivity extends AppCompatActivity {
                 String otp03text = otp01.getText().toString();
                 String otp04text = otp01.getText().toString();
 
+//                otp01.length() == 1;
+
                 final String getOTP = otp01text + otp02text + otp03text + otp04text;
                 if (getOTP.length() == 4){
                     // this is where i will handle the verification
+//                    if (!otp01text.equals("") && !otp02text.equals("") && !otp03text.equals("") && !otp04text.equals("")){
+//                        otp01.setBackgroundColor(R.drawable.rounded_verify_box);
+//                        otp02.setBackgroundColor(R.drawable.rounded_verify_box);
+//                        otp03.setBackgroundColor(R.drawable.rounded_verify_box);
+//                        otp04.setBackgroundColor(R.drawable.rounded_verify_box);
+//                    }
+
+                    if (otp01.length() == 1 && otp02.length() == 1 && otp03.length() == 1 && otp04.length() == 1){
+                        otp01.setBackgroundColor(R.drawable.rounded_verify_box);
+                        otp02.setBackgroundColor(R.drawable.rounded_verify_box);
+                        otp03.setBackgroundColor(R.drawable.rounded_verify_box);
+                        otp04.setBackgroundColor(R.drawable.rounded_verify_box);
+                    }
                 }
             }
         });
