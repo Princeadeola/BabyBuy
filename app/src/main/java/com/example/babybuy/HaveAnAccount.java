@@ -26,7 +26,6 @@ public class HaveAnAccount extends AppCompatActivity {
         individualCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(HaveAnAccount.this, "Individual Card clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(HaveAnAccount.this, LoginActivity.class);
                 startActivity(intent);
             }
@@ -35,7 +34,8 @@ public class HaveAnAccount extends AppCompatActivity {
         familyCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(HaveAnAccount.this, "Family Card clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HaveAnAccount.this, InvitedSomeoneActivity.class);
+                startActivity(intent);
             }
         });
 

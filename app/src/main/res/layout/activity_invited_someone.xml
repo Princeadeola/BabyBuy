@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    >
+
+    <TextView
+        android:id="@+id/greetingID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:text="Welcome back!"
+        android:textColor="@color/text_black"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/phoneNumberContainerID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/greetingID">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneLayoutContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/light_red"
+            app:boxStrokeColor="@color/borderColor"
+            app:hintTextColor="@color/borderColor"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="#A0A6A9"
+                android:hint="Enter  Number"
+                android:inputType="number"
+                android:lines="1"
+                android:padding="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/inviteCodeContainerID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneNumberContainerID">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inviteCodeLayoutContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/light_red"
+            app:boxStrokeColor="@color/borderColor"
+            app:hintTextColor="@color/borderColor"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inviteCodeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="#A0A6A9"
+                android:hint="Enter  Invite code"
+                android:inputType="number"
+                android:lines="1"
+                android:padding="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginInviteBtnID"
+        android:layout_width="361dp"
+        android:layout_height="57dp"
+        android:layout_below="@id/inviteCodeContainerID"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/inactive_rounded_button"
+        android:text="Login"
+        android:textColor="#A0A6A9" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Invite code?"
+            android:textColor="@color/text_black"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/createAccountFromLoginTxtID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_account"
+            android:textColor="@color/light_red"
+            android:textSize="20sp"
+            android:paddingStart="5dp"
+            android:layout_marginBottom="40dp"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
