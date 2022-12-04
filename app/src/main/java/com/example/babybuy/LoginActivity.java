@@ -3,12 +3,16 @@ package com.example.babybuy;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -25,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView forgotPasswordTxt, createAccountTxt;
     TextInputLayout phoneLayout, passwordLayout;
     TextInputEditText phoneEditText, passwordEditText;
-    Button loginBtn;
+    Button loginBtn, resetPasswordBtn;
     Dialog dialog;
 
     @Override
@@ -38,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         phoneEditText = findViewById(R.id.phoneEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         passwordLayout = findViewById(R.id.passwordLayoutContainer);
-        loginBtn = findViewById(R.id.loginBtnID);
 
         forgotPasswordTxt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +58,10 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+
 
 
         // watch when the edittext is clicked, typing or wrong character for phone EditText
@@ -80,6 +87,9 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+
+
 
         // watch when the edittext is clicked, typing or wrong character for password EditText
         passwordEditText.addTextChangedListener(new TextWatcher() {
@@ -114,53 +124,33 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         //if the user enters a wrong password and click login Button
+        View alertIncorrectPasswordDialog = LayoutInflater.from(LoginActivity.this).inflate(R.layout.incorrect_password_dialog, null);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
+        alertDialog.setView(alertIncorrectPasswordDialog);
+        resetPasswordBtn = (Button) alertIncorrectPasswordDialog.findViewById(R.id.resetPasswordBtnID);
+
+
+        final AlertDialog dialog = alertDialog.create();
+
+        loginBtn = (Button) findViewById(R.id.loginBtnID);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showWrongPasswordDialog("login", "Forget Password", "Did you forget it", "Reset");
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
             }
         });
-    }
 
-    private void showWrongPasswordDialog(String login, String text01, String text02, String text03){
-        Button resetPasswordBtn;
-        ImageView wrongPasswordImg;
-        TextView text1, text2, text3;
-
-        resetPasswordBtn = findViewById(R.id.resetPasswordBtnID);
-        wrongPasswordImg = findViewById(R.id.wrongPasswordImgID);
-        text1 = findViewById(R.id.incorrectPasswordTxtID);
-        text2 = findViewById(R.id.forgotPasswordTxtID);
-        text3 = findViewById(R.id.resetPasswordTxtID);
-
-        dialog = new Dialog(LoginActivity.this);
-        dialog.setContentView(R.layout.incorrect_password_dialog);
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-        Window window = dialog.getWindow();
-        window.setGravity(Gravity.CENTER);
-        window.getAttributes().windowAnimations = R.style.DialogAnimation;
-
-//        text1.setText(text01);
-//        text2.setText(text02);
-//        text3.setText(text03);
-
-//        if (login.equals("login")){
-//            wrongPasswordImg.setImageResource(R.drawable.incorrect_password_retry);
-//            text1.setTextColor(getResources().getColor(R.color.light_red));
-//            resetPasswordBtn.setBackgroundResource(R.drawable.blue_border_colored_bg);
-//        }
-
-//        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//            }
-//        });
-
-        dialog.setCancelable(true);
-        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
-        dialog.show();
+        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+                //showWrongPasswordDialog("login", "Forget Password", "Did you forget it", "Reset");
+            }
+        });
     }
 }
