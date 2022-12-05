@@ -145,6 +145,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //
+
         resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
