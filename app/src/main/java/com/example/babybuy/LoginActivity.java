@@ -154,5 +154,7 @@ public class LoginActivity extends AppCompatActivity {
                 //showWrongPasswordDialog("login", "Forget Password", "Did you forget it", "Reset");
             }
         });
+
+        //
     }
 }
