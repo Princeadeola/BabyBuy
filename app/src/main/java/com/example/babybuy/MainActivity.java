@@ -24,20 +24,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getCurrentFragment(new HomeFragment());
 
-//        binding.bottomNavID.setOnItemReselectedListener(item -> {
-//            switch (item.getItemId()){
-//                case R.id.home:
-//                    getCurrentFragment(new HomeFragment());
-//                    break;
-//                case R.id.myList:
-//                    break;
-//                case R.id.assigned:
-//                    break;
-//                case R.id.profile:
-//                    getCurrentFragment(new ProfileFragment());
-//                    break;
-//            }
-//        });
+        binding.bottomNavID.setOnItemReselectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.home:
+                    getCurrentFragment(new HomeFragment());
+                    break;
+                case R.id.myList:
+                    break;
+                case R.id.assigned:
+                    break;
+                case R.id.profile:
+                    getCurrentFragment(new ProfileFragment());
+                    break;
+            }
+        });
     }
 
     private void getCurrentFragment(Fragment fragment){
