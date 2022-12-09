@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable-v24/inactive_rounded_button_border.xml" value="0.251" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/blue_border_colored_bg.xml" value="0.179" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/bought_round_text_view_bg.xml" value="0.179" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/btn_conner.xml" value="0.2545" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/btn_selector_shape.xml" value="0.2355" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/btn_shape_capsule.xml" value="0.2355" />
@@ -13,12 +14,15 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/card_view_bg1.xml" value="0.179" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/cardbg.xml" value="0.2555" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/cardbg01.xml" value="0.2545" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/checklist_round_button_with_white_bg.xml" value="0.179" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/country_codes.xml" value="0.251" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/custom_input.xml" value="0.251" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/dialog_bg.xml" value="0.179" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/inactive_rounded_button.xml" value="0.251" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/left_round_text_view_bg.xml" value="0.179" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/rounded_button.xml" value="0.2355" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/rounded_button_light.xml" value="0.251" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/rounded_dot.xml" value="0.179" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/rounded_edittextview.xml" value="0.251" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/rounded_verify_border.xml" value="0.179" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/UniversityOfSunderland/BabyBuy/app/src/main/res/drawable/rounded_verify_box.xml" value="0.179" />
