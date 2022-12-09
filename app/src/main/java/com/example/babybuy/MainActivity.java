@@ -15,7 +15,9 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     HomeFragment homeFragment = new HomeFragment();
+    ListFragment listFragment = new ListFragment();
     ProfileFragment profileFragment = new ProfileFragment();
+    AssignedFragment assignedFragment = new AssignedFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +28,18 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID,homeFragment).commit();
 
-//        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.notification);
-//        badgeDrawable.setVisible(true);
-//        badgeDrawable.setNumber(8);
-
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID,homeFragment).commit();
+                        return true;
+                    case R.id.myList:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID, listFragment).commit();
+                        return true;
+                    case R.id.assigned:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID, assignedFragment).commit();
                         return true;
                     case R.id.profile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID, profileFragment).commit();
