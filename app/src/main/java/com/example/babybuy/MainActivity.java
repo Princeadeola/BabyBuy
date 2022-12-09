@@ -1,55 +1,50 @@
 package com.example.babybuy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.MenuItem;
 
-import com.example.babybuy.databinding.ActivityMainBinding;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
+
+    BottomNavigationView bottomNavigationView;
+
+    HomeFragment homeFragment = new HomeFragment();
+    ProfileFragment profileFragment = new ProfileFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        getCurrentFragment(new HomeFragment());
+        setContentView(R.layout.activity_main);
 
-        binding.bottomNavID.setOnItemReselectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.home:
-                    getCurrentFragment(new HomeFragment());
-                    break;
-                case R.id.myList:
-                    break;
-                case R.id.assigned:
-                    break;
-                case R.id.profile:
-                    getCurrentFragment(new ProfileFragment());
-                    break;
+        bottomNavigationView  = findViewById(R.id.bottomNavID);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID,homeFragment).commit();
+
+//        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.notification);
+//        badgeDrawable.setVisible(true);
+//        badgeDrawable.setNumber(8);
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID,homeFragment).commit();
+                        return true;
+                    case R.id.profile:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID, profileFragment).commit();
+                        return true;
+                }
+
+                return false;
             }
         });
-    }
 
-    private void getCurrentFragment(Fragment fragment){
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-
-        transaction.replace(R.id.frameLayoutID, fragment);
-        transaction.commit();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
     }
 }
