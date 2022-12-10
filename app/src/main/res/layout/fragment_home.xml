@@ -160,10 +160,9 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/add_red_circle_for_category"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="10dp"
-                    />
+                    android:src="@drawable/add_red_circle_for_category" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -684,8 +683,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/categoryCardLayoutID"
-                android:layout_marginTop="10dp"
-                >
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -694,6 +692,26 @@
                     android:textColor="#00599A"
                     android:textSize="25sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/view_all"
+                    android:textColor="@color/light_red"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/listViewLayoutID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recentlyAddedTextLayoutID">
+
+                <ListView
+                    android:id="@+id/listViewID"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     />
             </RelativeLayout>
 
