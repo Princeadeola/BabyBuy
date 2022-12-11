@@ -132,592 +132,655 @@
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
-
-        <!--  category section  -->
-        <RelativeLayout
-            android:id="@+id/categorySectionLayoutID"
+        <ScrollView
+            android:id="@+id/fromCategoryScrollViewID"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/homeTopWelcomeSectionID"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            >
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/homeTopWelcomeSectionID">
 
+            <!--  category section  -->
             <RelativeLayout
-                android:id="@+id/categoryTextAndIconLayoutID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Category"
-                    android:textColor="#00599A"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/add_red_circle_for_category" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/categoryCardLayoutID"
+                android:id="@+id/categorySectionLayoutID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/categoryTextAndIconLayoutID"
+                android:layout_below="@id/fromCategoryScrollViewID"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 >
 
+                <RelativeLayout
+                    android:id="@+id/categoryTextAndIconLayoutID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Category"
+                        android:textColor="#00599A"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/add_red_circle_for_category" />
+                </RelativeLayout>
 
-
-
-                <GridLayout
+                <RelativeLayout
+                    android:id="@+id/categoryCardLayoutID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:alignmentMode="alignMargins"
-                    android:columnOrderPreserved="true"
-                    android:rowCount="3"
-                    android:columnCount="3">
+                    android:layout_below="@id/categoryTextAndIconLayoutID"
+                    >
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginBottom="10dp"
-                        >
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp"
+
+
+
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:alignmentMode="alignMargins"
+                        android:columnOrderPreserved="true"
+                        android:rowCount="3"
+                        android:columnCount="3">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginBottom="10dp"
                             >
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_marginTop="10dp"
-                                        android:src="@drawable/feeding_bottle" />
-
-                                    <ImageView
-                                        android:layout_width="20dp"
-                                        android:layout_height="20dp"
-                                        android:layout_marginLeft="90dp"
-                                        android:src="@drawable/rounded_dot" />
-                                </RelativeLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Feeding"
-                                    android:textSize="17sp"
-                                    android:textStyle="bold"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="13 items"
-                                    android:textSize="14sp"
-                                    />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
-                                >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="3 bought"
-                                    android:padding="2dp"
-                                    android:textColor="#183923"
-                                    android:textSize="12sp"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="10 left"
-                                    android:padding="2dp"
-                                    android:textColor="#C71051"
-                                    android:textSize="12sp"
-                                    />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="10dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            >
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_marginTop="10dp"
-                                        android:src="@drawable/feeding_bottle" />
-
-                                    <ImageView
-                                        android:layout_width="20dp"
-                                        android:layout_height="20dp"
-                                        android:layout_marginLeft="90dp"
-                                        android:src="@drawable/rounded_dot" />
-                                </RelativeLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Feeding"
-                                    android:textSize="17sp"
-                                    android:textStyle="bold"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="13 items"
-                                    android:textSize="14sp"
-                                    />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
-                                >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="3 bought"
-                                    android:padding="2dp"
-                                    android:textColor="#183923"
-                                    android:textSize="12sp"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="10 left"
-                                    android:padding="2dp"
-                                    android:textColor="#C71051"
-                                    android:textSize="12sp"
-                                    />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="10dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            >
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_marginTop="10dp"
-                                        android:src="@drawable/feeding_bottle" />
-
-                                    <ImageView
-                                        android:layout_width="20dp"
-                                        android:layout_height="20dp"
-                                        android:layout_marginLeft="90dp"
-                                        android:src="@drawable/rounded_dot" />
-                                </RelativeLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Feeding"
-                                    android:textSize="17sp"
-                                    android:textStyle="bold"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="13 items"
-                                    android:textSize="14sp"
-                                    />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
-                                >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="3 bought"
-                                    android:padding="2dp"
-                                    android:textColor="#183923"
-                                    android:textSize="12sp"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="10 left"
-                                    android:padding="2dp"
-                                    android:textColor="#C71051"
-                                    android:textSize="12sp"
-                                    />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginBottom="10dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            >
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_marginTop="10dp"
-                                        android:src="@drawable/feeding_bottle" />
-
-                                    <ImageView
-                                        android:layout_width="20dp"
-                                        android:layout_height="20dp"
-                                        android:layout_marginLeft="90dp"
-                                        android:src="@drawable/rounded_dot" />
-                                </RelativeLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Feeding"
-                                    android:textSize="17sp"
-                                    android:textStyle="bold"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="13 items"
-                                    android:textSize="14sp"
-                                    />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
-                                >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="3 bought"
-                                    android:padding="2dp"
-                                    android:textColor="#183923"
-                                    android:textSize="12sp"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="10 left"
-                                    android:padding="2dp"
-                                    android:textColor="#C71051"
-                                    android:textSize="12sp"
-                                    />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="10dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            >
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_marginTop="10dp"
-                                        android:src="@drawable/feeding_bottle" />
-
-                                    <ImageView
-                                        android:layout_width="20dp"
-                                        android:layout_height="20dp"
-                                        android:layout_marginLeft="90dp"
-                                        android:src="@drawable/rounded_dot" />
-                                </RelativeLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Feeding"
-                                    android:textSize="17sp"
-                                    android:textStyle="bold"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="13 items"
-                                    android:textSize="14sp"
-                                    />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
-                                >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="3 bought"
-                                    android:padding="2dp"
-                                    android:textColor="#183923"
-                                    android:textSize="12sp"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bought_round_text_view_bg"
-                                    android:text="10 left"
-                                    android:padding="2dp"
-                                    android:textColor="#C71051"
-                                    android:textSize="12sp"
-                                    />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="10dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            >
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:orientation="vertical"
-                                android:gravity="center"
-                                android:layout_marginTop="15dp"
+                                android:padding="10dp"
                                 >
 
-                                <ImageView
-                                    android:id="@+id/cc"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginTop="10dp"
-                                    android:src="@drawable/other_category_icon"
-                                    android:textAlignment="center"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_alignParentStart="true"
-                                    />
-
-
-                                <TextView
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Others"
-                                    android:textSize="25sp"
-                                    android:textAlignment="center"
-                                    android:layout_below="@id/cc"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_alignParentStart="true"
-                                    />
+                                    android:orientation="vertical">
 
-                            </RelativeLayout>
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
 
-                        </LinearLayout>
+                                        <ImageView
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:layout_marginTop="10dp"
+                                            android:src="@drawable/feeding_bottle" />
+
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_marginLeft="90dp"
+                                            android:src="@drawable/rounded_dot" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Feeding"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="13 items"
+                                        android:textSize="14sp"
+                                        />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="10dp"
+                                    >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="3 bought"
+                                        android:padding="2dp"
+                                        android:textColor="#183923"
+                                        android:textSize="12sp"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="10 left"
+                                        android:padding="2dp"
+                                        android:textColor="#C71051"
+                                        android:textSize="12sp"
+                                        />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
 
 
-                    </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                </GridLayout>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            >
 
-            </RelativeLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <ImageView
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:layout_marginTop="10dp"
+                                            android:src="@drawable/feeding_bottle" />
+
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_marginLeft="90dp"
+                                            android:src="@drawable/rounded_dot" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Feeding"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="13 items"
+                                        android:textSize="14sp"
+                                        />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="10dp"
+                                    >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="3 bought"
+                                        android:padding="2dp"
+                                        android:textColor="#183923"
+                                        android:textSize="12sp"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="10 left"
+                                        android:padding="2dp"
+                                        android:textColor="#C71051"
+                                        android:textSize="12sp"
+                                        />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
 
 
-            <RelativeLayout
-                android:id="@+id/recentlyAddedTextLayoutID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/categoryCardLayoutID"
-                android:layout_marginTop="10dp">
+                        </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Recently added"
-                    android:textColor="#00599A"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="@string/view_all"
-                    android:textColor="@color/light_red"
-                    android:textSize="20sp" />
-            </RelativeLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                >
 
-            <RelativeLayout
-                android:id="@+id/listViewLayoutID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/recentlyAddedTextLayoutID">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
 
-                <ListView
-                    android:id="@+id/listViewID"
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <ImageView
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:layout_marginTop="10dp"
+                                            android:src="@drawable/feeding_bottle" />
+
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_marginLeft="90dp"
+                                            android:src="@drawable/rounded_dot" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Feeding"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="13 items"
+                                        android:textSize="14sp"
+                                        />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="10dp"
+                                    >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="3 bought"
+                                        android:padding="2dp"
+                                        android:textColor="#183923"
+                                        android:textSize="12sp"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="10 left"
+                                        android:padding="2dp"
+                                        android:textColor="#C71051"
+                                        android:textSize="12sp"
+                                        />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginBottom="10dp"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <ImageView
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:layout_marginTop="10dp"
+                                            android:src="@drawable/feeding_bottle" />
+
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_marginLeft="90dp"
+                                            android:src="@drawable/rounded_dot" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Feeding"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="13 items"
+                                        android:textSize="14sp"
+                                        />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="10dp"
+                                    >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="3 bought"
+                                        android:padding="2dp"
+                                        android:textColor="#183923"
+                                        android:textSize="12sp"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="10 left"
+                                        android:padding="2dp"
+                                        android:textColor="#C71051"
+                                        android:textSize="12sp"
+                                        />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <ImageView
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:layout_marginTop="10dp"
+                                            android:src="@drawable/feeding_bottle" />
+
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_marginLeft="90dp"
+                                            android:src="@drawable/rounded_dot" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Feeding"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="13 items"
+                                        android:textSize="14sp"
+                                        />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="10dp"
+                                    >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="3 bought"
+                                        android:padding="2dp"
+                                        android:textColor="#183923"
+                                        android:textSize="12sp"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bought_round_text_view_bg"
+                                        android:text="10 left"
+                                        android:padding="2dp"
+                                        android:textColor="#C71051"
+                                        android:textSize="12sp"
+                                        />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                >
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:gravity="center"
+                                    android:layout_marginTop="15dp"
+                                    >
+
+                                    <ImageView
+                                        android:id="@+id/cc"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginTop="10dp"
+                                        android:src="@drawable/other_category_icon"
+                                        android:textAlignment="center"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentStart="true"
+                                        />
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Others"
+                                        android:textSize="25sp"
+                                        android:textAlignment="center"
+                                        android:layout_below="@id/cc"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentStart="true"
+                                        />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </GridLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/recentlyAddedTextLayoutID"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:listitem="@layout/list_item"
-                    />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/categoryCardLayoutID"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recently added"
+                        android:textColor="#00599A"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/view_all"
+                        android:textColor="@color/light_red"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/listViewLayoutID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recentlyAddedTextLayoutID">
+
+                    <ListView
+                        android:id="@+id/listViewID"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:listitem="@layout/list_item"
+                        />
+                </RelativeLayout>
             </RelativeLayout>
+        </ScrollView>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddIconID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/fab_add_icon"
+            android:tint="@color/white"
+            android:backgroundTint="#00599A"
+            />
 
-        </RelativeLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAssignedIconID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/fab_assigned_icon"
+            android:tint="@color/white"
+            android:backgroundTint="#00599A"
+            android:layout_above="@id/fabAddIconID"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCreateNewListIconID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/fab_create_new_list_icon"
+            android:tint="@color/white"
+            android:backgroundTint="#00599A"
+            android:layout_above="@id/fabAssignedIconID"
+            />
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            >-->
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:src="@drawable/ic_baseline_add_24"-->
+<!--                android:tint="@color/white"-->
+<!--                android:backgroundTint="#00599A"-->
+<!--                />-->
+
+<!--        </RelativeLayout>-->
 
     </RelativeLayout>
 </FrameLayout>
