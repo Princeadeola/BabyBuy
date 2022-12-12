@@ -719,7 +719,28 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         tools:listitem="@layout/list_item"
+                        android:visibility="invisible"
                         />
+
+                    <ImageView
+                        android:id="@+id/noItemYetImageID"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/no_item_yet_icon"
+                        />
+
+                    <TextView
+                        android:id="@+id/notItemYetTextID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="You have not added any item yet"
+                        android:layout_below="@id/noItemYetImageID"
+                        android:textSize="20sp"
+                        android:textColor="#535454"
+                        />
+
                 </RelativeLayout>
             </RelativeLayout>
         </ScrollView>
@@ -733,8 +754,9 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:src="@drawable/fab_add_icon"
-            android:tint="@color/white"
+            app:tint="@color/white"
             android:backgroundTint="#00599A"
+            app:borderWidth="0dp"
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -746,9 +768,10 @@
             android:layout_marginBottom="20dp"
             android:visibility="invisible"
             android:src="@drawable/fab_assigned_icon"
-            android:tint="@color/white"
-            android:backgroundTint="#00599A"
+            app:tint="#00599A"
+            android:backgroundTint="@color/white"
             android:layout_above="@id/fabAddIconID"
+            app:borderWidth="0dp"
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -760,29 +783,12 @@
             android:layout_marginBottom="20dp"
             android:visibility="invisible"
             android:src="@drawable/fab_create_new_list_icon"
-            android:tint="@color/white"
-            android:backgroundTint="#00599A"
+            app:tint="#00599A"
+            android:backgroundTint="@color/white"
             android:layout_above="@id/fabAssignedIconID"
+            app:borderWidth="0dp"
             />
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="20dp"-->
-<!--            android:layout_marginBottom="20dp"-->
-<!--            >-->
-
-<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_alignParentEnd="true"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                android:src="@drawable/ic_baseline_add_24"-->
-<!--                android:tint="@color/white"-->
-<!--                android:backgroundTint="#00599A"-->
-<!--                />-->
-
-<!--        </RelativeLayout>-->
 
     </RelativeLayout>
 </FrameLayout>

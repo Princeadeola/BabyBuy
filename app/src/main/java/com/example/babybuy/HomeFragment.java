@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 // */
 public class HomeFragment extends Fragment {
     private FloatingActionButton mainFabIcon, assignedIcon, newListIcon;
-    private Animation fabOpenAnim, fabCloseAnim;
+    private Animation fabOpenAnim, fabCloseAnim, rotateOpen, rotateClose;
     View mainFragmentHolder;
     private boolean isOpen;
 
@@ -73,8 +73,10 @@ public class HomeFragment extends Fragment {
         assignedIcon = mainFragmentHolder.findViewById(R.id.fabAssignedIconID);
         newListIcon = mainFragmentHolder.findViewById(R.id.fabCreateNewListIconID);
 
-        fabOpenAnim = AnimationUtils.loadAnimation(getActivity(), R.anim.fab_rotate_open);
-        fabCloseAnim = AnimationUtils.loadAnimation(getActivity(), R.anim.fab_rotate_close);
+        fabOpenAnim = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_open);
+        fabCloseAnim = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_close);
+        rotateOpen = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_rotate_open);
+        rotateClose = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_rotate_close);
 
 
         isOpen = false;
@@ -84,6 +86,7 @@ public class HomeFragment extends Fragment {
                 if (isOpen){
                     assignedIcon.setAnimation(fabCloseAnim);
                     newListIcon.setAnimation(fabCloseAnim);
+                    mainFabIcon.setAnimation(rotateClose);
 
                     assignedIcon.setVisibility(View.INVISIBLE);
                     newListIcon.setVisibility(View.INVISIBLE);
@@ -92,9 +95,10 @@ public class HomeFragment extends Fragment {
                 }else {
                     assignedIcon.setAnimation(fabOpenAnim);
                     newListIcon.setAnimation(fabOpenAnim);
+                    mainFabIcon.setAnimation(rotateOpen);
 
-                    //assignedIcon.setVisibility(View.VISIBLE);
-                    //newListIcon.setVisibility(View.VISIBLE);
+                    assignedIcon.setVisibility(View.VISIBLE);
+                    newListIcon.setVisibility(View.VISIBLE);
 
                     isOpen = true;
                 }
