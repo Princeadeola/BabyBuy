@@ -31,6 +31,13 @@
             />
     </RelativeLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/checkListRecyclerViewID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchSectionID"
+        />
+
     <RelativeLayout
         android:id="@+id/checkListItemID"
         android:layout_width="match_parent"
@@ -38,41 +45,7 @@
         android:layout_below="@id/searchSectionID"
         >
 
-        <RelativeLayout
-            android:id="@+id/leftItemsID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal"
-            android:layout_marginEnd="10dp"
-            >
 
-            <ImageView
-                android:id="@+id/checkListItemImageID"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/bed"
-                />
-
-            <TextView
-                android:id="@+id/itemShortDescriptionID"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:text="Baby Mosquito net + sleeping pad"
-                android:textSize="20sp"
-                android:layout_marginStart="20dp"
-                android:layout_toRightOf="@id/checkListItemImageID"
-                android:layout_centerVertical="true"
-                />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/add_red_circle_for_category" />
-        </RelativeLayout>
     </RelativeLayout>
 
 
