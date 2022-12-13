@@ -112,7 +112,7 @@
                             android:textSize="16sp" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/loginBtnID"
+                            android:id="@+id/checkListBtnID"
                             android:layout_width="150dp"
                             android:layout_height="40dp"
                             android:layout_marginTop="20dp"

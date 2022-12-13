@@ -1,5 +1,6 @@
 package com.example.babybuy;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -17,9 +19,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 // * Use the {@link HomeFragment#newInstance} factory method to
 // * create an instance of this fragment.
 // */
+
+
 public class HomeFragment extends Fragment {
     private FloatingActionButton mainFabIcon, assignedIcon, newListIcon;
     private Animation fabOpenAnim, fabCloseAnim, rotateOpen, rotateClose;
+    Button goToChecklistBtn;
     View mainFragmentHolder;
     private boolean isOpen;
 
@@ -35,6 +40,11 @@ public class HomeFragment extends Fragment {
 //    public HomeFragment() {
 //        // Required empty public constructor
 //    }
+//
+//
+//
+//
+//
 //
 //    /**
 //     * Use this factory method to create a new instance of
@@ -63,6 +73,7 @@ public class HomeFragment extends Fragment {
 //        }
 //    }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,11 +83,20 @@ public class HomeFragment extends Fragment {
         mainFabIcon = mainFragmentHolder.findViewById(R.id.fabAddIconID);
         assignedIcon = mainFragmentHolder.findViewById(R.id.fabAssignedIconID);
         newListIcon = mainFragmentHolder.findViewById(R.id.fabCreateNewListIconID);
+        goToChecklistBtn = mainFragmentHolder.findViewById(R.id.checkListBtnID);
 
         fabOpenAnim = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_open);
         fabCloseAnim = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_close);
         rotateOpen = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_rotate_open);
         rotateClose = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_rotate_close);
+
+        goToChecklistBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(container.getContext(), CheckListActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         isOpen = false;

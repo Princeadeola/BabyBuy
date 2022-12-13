@@ -32,6 +32,20 @@ public class CheckListActivity extends AppCompatActivity {
         itemList = new ArrayList<>();
 
         itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
     }
 
     private void initRecyclerView() {
