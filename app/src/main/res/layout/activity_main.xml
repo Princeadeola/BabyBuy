@@ -22,13 +22,14 @@
         android:id="@+id/bottomNavID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:labelVisibilityMode="labeled"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        app:menu="@menu/bottom_menu_nav"
-        android:paddingBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
         android:paddingTop="10dp"
-        />
+        android:paddingBottom="10dp"
+        app:itemRippleColor="#00599A"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_menu_nav" />
 
 </RelativeLayout>

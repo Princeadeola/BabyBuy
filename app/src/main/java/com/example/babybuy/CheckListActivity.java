@@ -40,20 +40,21 @@ public class CheckListActivity extends AppCompatActivity {
         DrawableCompat.setTint(wrappedDrawable, Color.RED);
 
         itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.profile_image, "Baby clothing with extra soft love", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.image01, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.image02, "Baby food with brain boosters", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.bed, "Baby Mosquito net + sleeping pad with bed", R.drawable.add_red_circle_for_category));
         itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.profile_image, "Baby clothing with extra soft love", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.image01, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.image02, "Baby food with brain boosters", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.bed, "Baby Mosquito net + sleeping pad with bed", R.drawable.add_red_circle_for_category));
         itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
-        itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.profile_image, "Baby clothing with extra soft love", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.image01, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.image02, "Baby food with brain boosters", R.drawable.add_red_circle_for_category));
+        itemList.add(new CheckListModalClass(R.drawable.bed, "Baby Mosquito net + sleeping pad with bed", R.drawable.add_red_circle_for_category));
+
     }
 
     private void initRecyclerView() {
