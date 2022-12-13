@@ -36,17 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/searchSectionID"
+        android:layout_marginTop="20dp"
         />
-
-    <RelativeLayout
-        android:id="@+id/checkListItemID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/searchSectionID"
-        >
-
-
-    </RelativeLayout>
 
 
 
