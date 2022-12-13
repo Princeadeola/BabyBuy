@@ -28,64 +28,25 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/itemNameID"
             android:layout_width="240dp"
             android:layout_height="60dp"
-            android:textColor="@color/text_black"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/checkListItemImageCardViewID"
             android:text="Baby Mosquito net + sleeping pad"
-            android:textSize="20sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            />
+            android:textColor="@color/text_black"
+            android:textSize="20sp" />
 
         <ImageView
+            android:id="@+id/addItemImageIconID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/add_red_circle_for_category"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            />
-
-
-
-<!--        <ImageView-->
-<!--            android:id="@+id/checkListItemImageID"-->
-<!--            android:layout_width="70dp"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:src="@drawable/bed"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/itemShortDescriptionID"-->
-<!--            android:layout_width="250dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Baby Mosquito net + sleeping pad"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_marginStart="20dp"-->
-<!--            android:layout_toRightOf="@id/checkListItemImageID"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            />-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:src="@drawable/add_red_circle_for_category"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            />-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="12dp"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:background="@drawable/vertical_colored_curved_line"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            />-->
+            android:src="@drawable/add_red_circle_for_category" />
 
     </RelativeLayout>
 
