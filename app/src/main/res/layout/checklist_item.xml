@@ -49,6 +49,14 @@
             android:layout_marginEnd="10dp"
             android:src="@drawable/add_red_circle_for_category" />
 
+        <TextView
+            android:id="@+id/verticalColoredCurve"
+            android:layout_width="6dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/vertical_colored_curved_line"
+            />
+
     </RelativeLayout>
 
 </RelativeLayout>

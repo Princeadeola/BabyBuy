@@ -84,10 +84,11 @@
 
 
         <TextView
+            android:id="@+id/verticalColoredCurve"
             android:layout_width="6dp"
             android:layout_height="100dp"
-            android:background="#000"
             android:layout_alignParentEnd="true"
+            android:background="@drawable/vertical_colored_curved_line"
             />
     </RelativeLayout>
 

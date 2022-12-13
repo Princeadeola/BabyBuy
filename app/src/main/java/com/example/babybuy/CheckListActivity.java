@@ -1,9 +1,13 @@
 package com.example.babybuy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.example.babybuy.Adapters.CheckListAdapter;
@@ -30,6 +34,10 @@ public class CheckListActivity extends AppCompatActivity {
 
     private void initData() {
         itemList = new ArrayList<>();
+
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.vertical_colored_curved_line);
+        Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
+        DrawableCompat.setTint(wrappedDrawable, Color.RED);
 
         itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
         itemList.add(new CheckListModalClass(R.drawable.pregnant_mom, "Baby Mosquito net + sleeping pad", R.drawable.add_red_circle_for_category));
