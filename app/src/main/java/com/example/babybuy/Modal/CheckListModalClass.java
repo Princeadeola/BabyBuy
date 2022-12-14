@@ -17,6 +17,7 @@ public class CheckListModalClass {
 
     public String getItemName() {
         return itemName;
+
     }
 
     public int getAddItemImage() {
