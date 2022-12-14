@@ -69,6 +69,4 @@
         android:layout_below="@id/searchSectionID"
         android:layout_marginTop="20dp" />
 
-
-
 </RelativeLayout>
