@@ -29,7 +29,6 @@ public class CheckListActivity extends AppCompatActivity {
 
         initData();
         initRecyclerView();
-
     }
 
     private void initData() {
