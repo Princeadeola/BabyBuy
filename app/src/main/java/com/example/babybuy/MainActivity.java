@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutID,homeFragment).commit();
 
-        //the bottom navigation on each item selection (on each item)
+        //the bottom navigation on each item selection (on each item clicked)
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
