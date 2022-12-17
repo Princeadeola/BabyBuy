@@ -4,10 +4,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:behavior_hidable="true"
-    app:behavior_peekHight="true"
     app:layout_behavior="Alphabetical Sorting"
     >
+    <!--    app:behavior_hidable="true"-->
+    <!--    app:behavior_peekHight="true"-->
 
     <RelativeLayout
         android:layout_width="match_parent"
