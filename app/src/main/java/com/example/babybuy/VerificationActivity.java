@@ -3,11 +3,16 @@ package com.example.babybuy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -113,12 +118,12 @@ public class VerificationActivity extends AppCompatActivity {
 
         sendOtpToUser(userPhoneNumber);
 
-//        otp01.addTextChangedListener(textWatcher);
-//        otp02.addTextChangedListener(textWatcher);
-//        otp03.addTextChangedListener(textWatcher);
-//        otp04.addTextChangedListener(textWatcher);
-//
-//        keyboard(otp01); //shows the keyboard on opt01 by default
+        otp01.addTextChangedListener(textWatcher);
+        otp02.addTextChangedListener(textWatcher);
+        otp03.addTextChangedListener(textWatcher);
+        otp04.addTextChangedListener(textWatcher);
+
+        keyboard(otp01); //shows the keyboard on opt01 by default
 //
 //        startCountDownTimer(); //start countdown timer
 //
@@ -169,45 +174,47 @@ public class VerificationActivity extends AppCompatActivity {
 
 
     //
-//    TextWatcher textWatcher = new TextWatcher() {
-//        @Override
-//        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            if (selectedOTPTxtPosition == 0){
+                selectedOTPTxtPosition = 1; // change the position to next
+                keyboard(otp02); //put keyboard on next box
+            }
+            else if (selectedOTPTxtPosition == 1){
+                selectedOTPTxtPosition = 2; // change the position to next
+                keyboard(otp03); //put keyboard on next box
+            }
+            else if (selectedOTPTxtPosition == 2){
+                selectedOTPTxtPosition = 3; // change the position to next
+                keyboard(otp04); //put keyboard on next box
+            }else {
+                verifyBtn.setBackgroundColor(R.drawable.rounded_button);
+//                verifyBtn.setBackground(R.drawable.);
+            }
+
+        }
+    };
 //
-//        }
-//
-//        @Override
-//        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//        }
-//
-//        @Override
-//        public void afterTextChanged(Editable editable) {
-//            if (selectedOTPTxtPosition == 0){
-//                selectedOTPTxtPosition = 1; // change the position to next
-//                keyboard(otp02); //put keyboard on next box
-//            }
-//            else if (selectedOTPTxtPosition == 1){
-//                selectedOTPTxtPosition = 2; // change the position to next
-//                keyboard(otp03); //put keyboard on next box
-//            }
-//            else if (selectedOTPTxtPosition == 2){
-//                selectedOTPTxtPosition = 3; // change the position to next
-//                keyboard(otp04); //put keyboard on next box
-//            }else {
-//                verifyBtn.setBackgroundColor(R.drawable.rounded_button);
-////                verifyBtn.setBackground(R.drawable.);
-//            }
-//
-//        }
-//    };
-//
-//    private void keyboard(EditText otpEditText){
-//        otpEditText.requestFocus();
-//
-//        InputMethodManager inputMethodManager = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-//        inputMethodManager.showSoftInput(otpEditText, inputMethodManager.SHOW_IMPLICIT);
-//    }
-//
+
+    //This method handles the keyboard focusing on the input field
+    private void keyboard(EditText otpEditText){
+        otpEditText.requestFocus();
+
+        InputMethodManager inputMethodManager = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.showSoftInput(otpEditText, inputMethodManager.SHOW_IMPLICIT);
+    }
+
     private void startCountDownTimer(){
         resendEnable = true;
         resendOtpBtn.setTextColor(Color.parseColor("#99000000"));
@@ -227,30 +234,31 @@ public class VerificationActivity extends AppCompatActivity {
             }
         }.start();
     }
-//
-//    @Override
-//    public boolean onKeyUp(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_DEL){
-//            if (selectedOTPTxtPosition == 3){
-//                selectedOTPTxtPosition = 2; // select previous position
-//                keyboard(otp03); // show the keyboard on the previous position
-//            }
-//            else if (selectedOTPTxtPosition == 2){
-//                selectedOTPTxtPosition = 1; // select previous position
-//                keyboard(otp02); // show the keyboard on the previous position
-//            }
-//            else if (selectedOTPTxtPosition == 1){
-//                selectedOTPTxtPosition = 0; // select previous position
-//                keyboard(otp01); // show the keyboard on the previous position
-//            }
-//
-//            verifyBtn.setBackgroundColor(R.drawable.inactive_rounded_button);
-//            return true;
-//        }
-//        else {
-//            return super.onKeyUp(keyCode, event);
-//        }
-//    }
+
+    // this method changes the position of the keyboard after each click
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_DEL){
+            if (selectedOTPTxtPosition == 3){
+                selectedOTPTxtPosition = 2; // select previous position
+                keyboard(otp03); // show the keyboard on the previous position
+            }
+            else if (selectedOTPTxtPosition == 2){
+                selectedOTPTxtPosition = 1; // select previous position
+                keyboard(otp02); // show the keyboard on the previous position
+            }
+            else if (selectedOTPTxtPosition == 1){
+                selectedOTPTxtPosition = 0; // select previous position
+                keyboard(otp01); // show the keyboard on the previous position
+            }
+
+            verifyBtn.setBackgroundColor(R.drawable.inactive_rounded_button);
+            return true;
+        }
+        else {
+            return super.onKeyUp(keyCode, event);
+        }
+    }
 
 
     //this method validates if use have entered correct input
@@ -266,12 +274,12 @@ public class VerificationActivity extends AppCompatActivity {
 
     // this method sends otp
     public void sendOtpToUser(String userPhoneNumber){
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(userPhoneNumber, 60, TimeUnit.SECONDS, this, phoneCallBacks);
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(userPhoneNumber, resendTime, TimeUnit.SECONDS, this, phoneCallBacks);
     }
 
     // this method resends the otp to the user but this time it comes with the token
     public void resendOtpToUser(String userPhoneNumber){
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(userPhoneNumber, 60, TimeUnit.SECONDS, this, phoneCallBacks, token);
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(userPhoneNumber, resendTime, TimeUnit.SECONDS, this, phoneCallBacks, token);
     }
 
     private void VerifyUserAuthentication(PhoneAuthCredential credential) {
