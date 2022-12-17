@@ -17,11 +17,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.internal.TextWatcherAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
 public class VerificationActivity extends AppCompatActivity {
     EditText otp01, otp02, otp03, otp04;
     TextView resendOtpBtn;
     Button verifyBtn;
+    Boolean isOTPValid;
+    FirebaseAuth firebaseAuth;
+    PhoneAuthCredential phoneAuthCredential;
+    PhoneAuthProvider.ForceResendingToken token;
 
     private int resendTime = 60; // 60 seconds
     private boolean resendEnable = false; //will be true after 60 seconds
@@ -39,6 +46,11 @@ public class VerificationActivity extends AppCompatActivity {
 
         resendOtpBtn = findViewById(R.id.resendOTPBtnID);
         verifyBtn = findViewById(R.id.verifyBtnID);
+
+        validateUserData(otp01);
+        validateUserData(otp02);
+        validateUserData(otp03);
+        validateUserData(otp04);
 
         otp01.addTextChangedListener(textWatcher);
         otp02.addTextChangedListener(textWatcher);
@@ -173,6 +185,17 @@ public class VerificationActivity extends AppCompatActivity {
         }
         else {
             return super.onKeyUp(keyCode, event);
+        }
+    }
+
+
+    //this method validates if use have entered correct input
+    public void validateUserData(EditText input){
+        if (input.getText().toString().isEmpty()){
+            isOTPValid = false;
+            input.setError("Required Field.");
+        }else{
+            isOTPValid = true;
         }
     }
 }

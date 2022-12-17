@@ -17,10 +17,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class CreateAccount extends AppCompatActivity {
     TextView termTxt, loginTextFromCreateAccount;
     Button createAccountBtn;
     EditText emailEditTxt, phoneEditTxt, passwordEditTx, confirmPasswordEditTxt;
+    Boolean isUserDataValid = false;
+
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +39,49 @@ public class CreateAccount extends AppCompatActivity {
         createAccountBtn =  findViewById(R.id.createAccountBtnID);
         loginTextFromCreateAccount = findViewById(R.id.loginFromCreateAccountTxtID);
 
+
+
+
         //create account authentication starts
 
         emailEditTxt = findViewById(R.id.EmailEditText);
         phoneEditTxt = findViewById(R.id.phoneEditText);
         passwordEditTx = findViewById(R.id.passwordEditText);
+        confirmPasswordEditTxt = findViewById(R.id.confirmPasswordEditText);
+        firebaseAuth = FirebaseAuth.getInstance();
 
 
-        // when the create account button is clicked
+        validateUserData(emailEditTxt);
+        validateUserData(phoneEditTxt);
+        validateUserData(passwordEditTx);
+        validateUserData(confirmPasswordEditTxt);
+
+
+        //checks if the password and confirm password are matched with each other
+        if (!passwordEditTx.getText().toString().equals(confirmPasswordEditTxt.getText().toString())){
+            isUserDataValid = false;
+            confirmPasswordEditTxt.setError("Not matched with password");
+        }else {
+            isUserDataValid = true;
+        }
+
+
+
+        if (isUserDataValid){
+            firebaseAuth.createUserWithEmailAndPassword(emailEditTxt.getText().toString(), passwordEditTx.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                @Override
+                public void onSuccess(AuthResult authResult) {
+                    Toast.makeText(CreateAccount.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(CreateAccount.this, "Error ! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+
         createAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,9 +90,7 @@ public class CreateAccount extends AppCompatActivity {
             }
         });
 
-
         // create account authentication ends
-
 
 
 
@@ -99,6 +140,17 @@ public class CreateAccount extends AppCompatActivity {
         ss.setSpan(cs02, 60, 76, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termTxt.setText(ss);
         termTxt.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+
+    //this method validates if use have entered correct input
+    public void validateUserData(EditText input){
+        if (input.getText().toString().isEmpty()){
+            isUserDataValid = false;
+            input.setError("Required Field.");
+        }else{
+            isUserDataValid = true;
+        }
     }
 
 
