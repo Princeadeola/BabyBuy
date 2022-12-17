@@ -3,23 +3,17 @@ package com.example.babybuy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.internal.TextWatcherAdapter;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +31,7 @@ public class VerificationActivity extends AppCompatActivity {
     PhoneAuthCredential phoneAuthCredential;
     PhoneAuthProvider.ForceResendingToken token;
     String verificationID;
+    String userPhoneNumber;
 
     PhoneAuthProvider.OnVerificationStateChangedCallbacks phoneCallBacks;
 
@@ -58,10 +53,34 @@ public class VerificationActivity extends AppCompatActivity {
         verifyBtn = findViewById(R.id.verifyBtnID);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        validateUserData(otp01);
-        validateUserData(otp02);
-        validateUserData(otp03);
-        validateUserData(otp04);
+        Intent getUserPhoneNumberIntent = getIntent();
+        userPhoneNumber = getUserPhoneNumberIntent.getStringExtra("number");
+
+        verifyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validateUserData(otp01);
+                validateUserData(otp02);
+                validateUserData(otp03);
+                validateUserData(otp04);
+
+                String otp01text = otp01.getText().toString();
+                String otp02text = otp01.getText().toString();
+                String otp03text = otp01.getText().toString();
+                String otp04text = otp01.getText().toString();
+
+
+                if (isOTPValid){
+
+                    String otpEntered = otp01text+otp02text+otp03text+otp04text;
+                    //String otpEntered = otp01.getText().toString()+otp02.getText().toString()+otp03.getText().toString()+otp04.getText().toString();
+
+                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationID, otpEntered);
+                    VerifyUserAuthentication(credential);
+                }
+            }
+        });
+
 
         phoneCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
@@ -71,7 +90,7 @@ public class VerificationActivity extends AppCompatActivity {
 
                 verificationID = s;
                 token = forceResendingToken;
-                resendOtpBtn.setEnabled(false);
+                //resendOtpBtn.setEnabled(false);
             }
 
             @Override
@@ -82,7 +101,8 @@ public class VerificationActivity extends AppCompatActivity {
 
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-
+                VerifyUserAuthentication(phoneAuthCredential);
+                //resendOtpBtn.setEnabled(false);
             }
 
             @Override
@@ -91,13 +111,7 @@ public class VerificationActivity extends AppCompatActivity {
             }
         };
 
-        if (isOTPValid){
-
-            String otpEntered = otp01.getText().toString()+otp02.getText().toString()+otp03.getText().toString()+otp04.getText().toString();
-
-            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationID, otpEntered);
-            VerifyUserAuthentication(credential);
-        }
+        sendOtpToUser(userPhoneNumber);
 
 //        otp01.addTextChangedListener(textWatcher);
 //        otp02.addTextChangedListener(textWatcher);
@@ -112,6 +126,7 @@ public class VerificationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (resendEnable){
+                    resendOtpToUser(userPhoneNumber);
                     startCountDownTimer();
                 }
             }

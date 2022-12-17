@@ -73,7 +73,7 @@ public class CreateAccount extends AppCompatActivity {
                 public void onSuccess(AuthResult authResult) {
                     Toast.makeText(CreateAccount.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                     Intent verifyPhoneNumberIntent = new Intent(CreateAccount.this, VerificationActivity.class);
-                    verifyPhoneNumberIntent.putExtra("phoneNumber", "+" + phoneEditTxt.getText().toString());
+                    verifyPhoneNumberIntent.putExtra("number", "+" + phoneEditTxt.getText().toString());
                     startActivity(verifyPhoneNumberIntent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
