@@ -13,12 +13,14 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class CreateAccount extends AppCompatActivity {
     TextView termTxt, loginTextFromCreateAccount;
     Button createAccountBtn;
+    EditText emailEditTxt, phoneEditTxt, passwordEditTx, confirmPasswordEditTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,31 @@ public class CreateAccount extends AppCompatActivity {
         termTxt = findViewById(R.id.termTxtID);
         createAccountBtn =  findViewById(R.id.createAccountBtnID);
         loginTextFromCreateAccount = findViewById(R.id.loginFromCreateAccountTxtID);
+
+        //create account authentication starts
+
+        emailEditTxt = findViewById(R.id.EmailEditText);
+        phoneEditTxt = findViewById(R.id.phoneEditText);
+        passwordEditTx = findViewById(R.id.passwordEditText);
+
+
+        // when the create account button is clicked
+        createAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreateAccount.this, VerificationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        // create account authentication ends
+
+
+
+
+
+
 
         loginTextFromCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,16 +99,6 @@ public class CreateAccount extends AppCompatActivity {
         ss.setSpan(cs02, 60, 76, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termTxt.setText(ss);
         termTxt.setMovementMethod(LinkMovementMethod.getInstance());
-
-
-        // when the create account button is clicked
-        createAccountBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CreateAccount.this, VerificationActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 

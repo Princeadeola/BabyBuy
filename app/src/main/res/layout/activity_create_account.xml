@@ -111,7 +111,41 @@
                 android:lines="1"
                 android:maxLength="16"
                 android:inputType="textPassword"
-                android:hint="Enter New Password"/>
+                android:hint="Enter Password"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/confirmPasswordCContainerID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordCContainerID">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmPasswordLayoutContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/light_red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:boxStrokeColor="@color/borderColor"
+            app:hintTextColor="@color/borderColor"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:lines="1"
+                android:maxLength="16"
+                android:inputType="textPassword"
+                android:hint="Confirm Password"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -122,7 +156,7 @@
         android:id="@+id/termTxtID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/passwordCContainerID"
+        android:layout_below="@id/confirmPasswordCContainerID"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -139,7 +173,7 @@
         android:layout_height="57dp"
         android:layout_below="@id/termTxtID"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/inactive_rounded_button"
         android:text="Create an account"
