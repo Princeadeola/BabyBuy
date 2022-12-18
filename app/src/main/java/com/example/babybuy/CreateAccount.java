@@ -66,7 +66,6 @@ public class CreateAccount extends AppCompatActivity {
         }
 
 
-
         if (isUserDataValid){
 //            firebaseAuth.createUserWithEmailAndPassword(emailEditTxt.getText().toString(), passwordEditTx.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
 //                @Override
