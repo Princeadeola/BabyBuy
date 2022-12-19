@@ -2,7 +2,9 @@ package com.example.babybuy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -30,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Field;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,50 +58,50 @@ public class LoginActivity extends AppCompatActivity {
         passwordLayout = findViewById(R.id.passwordLayoutContainer);
         loginBtn = findViewById(R.id.loginBtnID);
 
-//        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
-        dbReference = FirebaseDatabase.getInstance().getReference();
+
+        final TextInputLayout input = (TextInputLayout) findViewById(R.id.phoneLayoutContainer);
+        input.setErrorEnabled(true);
+
+        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //validateUserData(phoneEditText);
-                //validateUserData(passwordEditText);
+                validateUserData(phoneEditText);
+                validateUserData(passwordEditText);
 
-                final String phoneText = phoneEditText.getText().toString();
-                final String passwordTxt = passwordEditText.getText().toString();
+                String phoneText = phoneEditText.getText().toString();
+                String passwordText = passwordEditText.getText().toString();
 
-                if (phoneText.isEmpty() || passwordTxt.isEmpty()){
-                    Toast.makeText(LoginActivity.this, "Field required", Toast.LENGTH_SHORT).show();
-                }{
-                    dbReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            //this will check if the number already exist in my DB
-                            if (snapshot.hasChild(phoneText)){
-                                // since I have confirm that the number is in the firebase database
-                                // now I can get the password and compare with the passwordEditTxt input
-                                final String getUserPassword = snapshot.child(phoneText).child("password").getValue(String.class);
+                dbReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        //this will check if the number already exist in my DB
+                        if (snapshot.hasChild(phoneText)){
+                            // since I have confirm that the number is in the firebase database
+                            // now I can get the password and compare with the passwordEditTxt input
+                            final String getUserPassword = snapshot.child(phoneText).child("password").getValue(String.class);
 
-                                if (getUserPassword.equals(passwordEditText)){
-                                    Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
+                            if (getUserPassword.equals(passwordText)){
+                                Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
 
-                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                    finish();
-                                }else {
-                                    Toast.makeText(LoginActivity.this, "Logged in not successful, Try again", Toast.LENGTH_SHORT).show();
-                                }
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
                             }else {
-                                Toast.makeText(LoginActivity.this, "incorrect inputs, Try again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Logged in not successful, Try again", Toast.LENGTH_SHORT).show();
                             }
+                        }else {
+                            setErrorTextColor(input, ContextCompat.getColor(getApplicationContext(), android.R.color.darker_gray));
+                            input.setError("Funk you!");
+                            Toast.makeText(LoginActivity.this, "phone number not registered, Try again", Toast.LENGTH_SHORT).show();
                         }
+                    }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
-                }
-
+                    }
+                });
             }
         });
 
@@ -208,12 +211,27 @@ public class LoginActivity extends AppCompatActivity {
 //                //showWrongPasswordDialog("login", "Forget Password", "Did you forget it", "Reset");
 //            }
 //        });
+
     }
 
     //this method validates if use have entered correct input
     public void validateUserData(EditText input){
         if (input.getText().toString().isEmpty()){
             input.setError("Required Field.");
+        }
+    }
+
+
+    public void setErrorTextColor(TextInputLayout textInputLayout, int color) {
+        try {
+            Field fErrorView = TextInputLayout.class.getDeclaredField("mErrorView");
+            fErrorView.setAccessible(true);
+            TextView mErrorView = (TextView) fErrorView.get(textInputLayout);
+            @SuppressLint("SoonBlockedPrivateApi") Field fCurTextColor = TextView.class.getDeclaredField("mCurTextColor");
+            fCurTextColor.setAccessible(true);
+            fCurTextColor.set(mErrorView, color);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

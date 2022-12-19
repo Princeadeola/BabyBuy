@@ -1,6 +1,7 @@
 package com.example.babybuy;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,10 +18,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,14 +39,30 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class CreateAccount extends AppCompatActivity {
+    private static final int RC_SIGN_IN = 234;
     TextView termTxt, loginTextFromCreateAccount;
-    Button createAccountBtn;
+    Button createAccountBtn, continueWithGoogleBtn;
     EditText fullNameTxt, emailEditTxt, phoneEditTxt, passwordEditTx, confirmPasswordEditTxt;
     Boolean isUserDataValid = false;
     FirebaseAuth firebaseAuth;
 
     //access realtime database
     DatabaseReference dbReference;
+    private GoogleSignInClient mGoogleSignInClient;
+
+
+    // in this onStart() => When the app opens, it checks if the user already signed in before 
+    // and if yes, then it moves to main activity direct, no need to ask user to sign in again
+    @Override
+    protected void onStart() {
+        super.onStart();
+        
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if (user!=null){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +71,9 @@ public class CreateAccount extends AppCompatActivity {
 
         termTxt = findViewById(R.id.termTxtID);
         createAccountBtn =  findViewById(R.id.createAccountBtnID);
+        continueWithGoogleBtn =  findViewById(R.id.signUpWithGoogleBtnID);
         loginTextFromCreateAccount = findViewById(R.id.loginFromCreateAccountTxtID);
-//        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
-        dbReference = FirebaseDatabase.getInstance().getReference();
+        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
 
         //create account authentication starts
 
@@ -56,6 +83,15 @@ public class CreateAccount extends AppCompatActivity {
         passwordEditTx = findViewById(R.id.passwordEditText);
         confirmPasswordEditTxt = findViewById(R.id.confirmPasswordEditText);
         firebaseAuth = FirebaseAuth.getInstance();
+        
+        request(); // this sends request to google
+        
+        continueWithGoogleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signIn();
+            }
+        });
 
 //        validateUserData(emailEditTxt);
 //        validateUserData(phoneEditTxt);
@@ -190,5 +226,60 @@ public class CreateAccount extends AppCompatActivity {
         }else{
             isUserDataValid = true;
         }
+    }
+    
+    //method to handle request to google
+    private void request(){
+        //Configure google sign in
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        
+        //Build a googleSignInClient with the option specified by geo
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+    }
+    
+    private void signIn(){
+        Intent sigInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(sigInIntent, RC_SIGN_IN);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        
+        // Result return from launching the intent from GoogleSignInApi.getSignInIntent()
+        if (requestCode == RC_SIGN_IN){
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                //Google sign in was successful, authenticate with firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                fireBaseAuthWithGoogle(account);
+            }catch (ApiException e){
+                //Google sign in failed, update UI Appropriately
+
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void fireBaseAuthWithGoogle(GoogleSignInAccount account) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            //sign in success, update UI with the signed in user information
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        }else {
+                            // if sign in fails, display a message to the user
+                            Toast.makeText(CreateAccount.this, "Sorry, authentication failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }

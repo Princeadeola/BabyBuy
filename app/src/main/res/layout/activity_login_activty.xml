@@ -31,8 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
-            app:helperText=""
-            app:helperTextTextColor="@color/light_red"
+            app:helperText="Include country code without (+)"
+            app:helperTextTextColor="#4E4E4E"
             app:boxStrokeColor="@color/borderColor"
             app:hintTextColor="@color/borderColor"
             >

@@ -96,8 +96,8 @@
             android:layout_marginTop="30dp"
             app:boxStrokeColor="@color/borderColor"
             app:hintTextColor="@color/borderColor"
-            app:helperText=""
-            app:helperTextTextColor="@color/light_red">
+            app:helperText="Include country code without (+)"
+            app:helperTextTextColor="#4E4E4E">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneEditTextInCreateAccountID"
@@ -229,7 +229,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_button_light"
-        android:text="Sign up with google"
+        android:text="Continue with google"
         android:textColor="#A0A6A9" />
 
     <LinearLayout
