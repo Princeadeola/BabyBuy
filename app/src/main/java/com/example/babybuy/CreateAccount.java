@@ -67,14 +67,14 @@ public class CreateAccount extends AppCompatActivity {
 
 
         if (isUserDataValid){
-//            firebaseAuth.createUserWithEmailAndPassword(emailEditTxt.getText().toString(), passwordEditTx.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-//                @Override
-//                public void onSuccess(AuthResult authResult) {
-//                    Toast.makeText(CreateAccount.this, "Account created successfully", Toast.LENGTH_SHORT).show();
-//                    Intent verifyPhoneNumberIntent = new Intent(getApplicationContext(), VerificationActivity.class);
-//                    verifyPhoneNumberIntent.putExtra("number",  phoneEditTxt.getText().toString());
-//                    startActivity(verifyPhoneNumberIntent);
-//                }
+            firebaseAuth.createUserWithEmailAndPassword(emailEditTxt.getText().toString(), passwordEditTx.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                @Override
+                public void onSuccess(AuthResult authResult) {
+                    Toast.makeText(CreateAccount.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                    Intent verifyPhoneNumberIntent = new Intent(getApplicationContext(), VerificationActivity.class);
+                    verifyPhoneNumberIntent.putExtra("number",  phoneEditTxt.getText().toString());
+                    startActivity(verifyPhoneNumberIntent);
+                }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
