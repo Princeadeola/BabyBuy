@@ -55,43 +55,50 @@ public class LoginActivity extends AppCompatActivity {
         passwordLayout = findViewById(R.id.passwordLayoutContainer);
         loginBtn = findViewById(R.id.loginBtnID);
 
-        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
+//        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
+        dbReference = FirebaseDatabase.getInstance().getReference();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validateUserData(phoneEditText);
-                validateUserData(passwordEditText);
+                //validateUserData(phoneEditText);
+                //validateUserData(passwordEditText);
 
-                String phoneText = phoneEditText.getText().toString();
+                final String phoneText = phoneEditText.getText().toString();
+                final String passwordTxt = passwordEditText.getText().toString();
 
-                dbReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        //this will check if the number already exist in my DB
-                        if (snapshot.hasChild(phoneText)){
-                            // since I have confirm that the number is in the firebase database
-                            // now I can get the password and compare with the passwordEditTxt input
-                            final String getUserPassword = snapshot.child(phoneText).child("password").getValue(String.class);
+                if (phoneText.isEmpty() || passwordTxt.isEmpty()){
+                    Toast.makeText(LoginActivity.this, "Field required", Toast.LENGTH_SHORT).show();
+                }{
+                    dbReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            //this will check if the number already exist in my DB
+                            if (snapshot.hasChild(phoneText)){
+                                // since I have confirm that the number is in the firebase database
+                                // now I can get the password and compare with the passwordEditTxt input
+                                final String getUserPassword = snapshot.child(phoneText).child("password").getValue(String.class);
 
-                            if (getUserPassword.equals(passwordEditText)){
-                                Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
+                                if (getUserPassword.equals(passwordEditText)){
+                                    Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
 
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                finish();
+                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                    finish();
+                                }else {
+                                    Toast.makeText(LoginActivity.this, "Logged in not successful, Try again", Toast.LENGTH_SHORT).show();
+                                }
                             }else {
-                                Toast.makeText(LoginActivity.this, "Logged in not successful, Try again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "incorrect inputs, Try again", Toast.LENGTH_SHORT).show();
                             }
-                        }else {
-                            Toast.makeText(LoginActivity.this, "incorrect inputs, Try again", Toast.LENGTH_SHORT).show();
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
+                }
+
             }
         });
 

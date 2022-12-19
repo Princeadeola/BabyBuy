@@ -45,7 +45,8 @@ public class CreateAccount extends AppCompatActivity {
         termTxt = findViewById(R.id.termTxtID);
         createAccountBtn =  findViewById(R.id.createAccountBtnID);
         loginTextFromCreateAccount = findViewById(R.id.loginFromCreateAccountTxtID);
-        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
+//        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
+        dbReference = FirebaseDatabase.getInstance().getReference();
 
         //create account authentication starts
 
