@@ -60,90 +60,86 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
         // watch when the edittext is clicked, typing or wrong character for phone EditText
-        phoneEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                String phoneNumber = charSequence.toString();
-
-                if (phoneNumber.length() >= 15){
-//                    phoneLayout.setError("Not a valid phone number");
-                }else {
-//                    phoneLayout.setError("");
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+//        phoneEditText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                String phoneNumber = charSequence.toString();
+//
+//                if (phoneNumber.length() >= 15){
+////                    phoneLayout.setError("Not a valid phone number");
+//                }else {
+////                    phoneLayout.setError("");
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
 
 
 
 
         // watch when the edittext is clicked, typing or wrong character for password EditText
-        passwordEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                String password = charSequence.toString();
-
-                if (password.length() >= 6){
-                    Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
-                    Matcher matcher = pattern.matcher(password);
-                    boolean doesPasswordContainSpecialCharacter = matcher.find();
-                    if (doesPasswordContainSpecialCharacter){
-                        passwordLayout.setError("");
-                        passwordLayout.setHelperText("");
-                    }else {
-                        passwordLayout.setHelperText("");
-                        passwordLayout.setError("Weak Password, should include minimum one special character");
-                    }
-                }else {
-                    passwordLayout.setHelperText("Enter Minimum of 6 character");
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+//        passwordEditText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                String password = charSequence.toString();
+//
+//                if (password.length() >= 6){
+//                    Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
+//                    Matcher matcher = pattern.matcher(password);
+//                    boolean doesPasswordContainSpecialCharacter = matcher.find();
+//                    if (doesPasswordContainSpecialCharacter){
+//                        passwordLayout.setError("");
+//                        passwordLayout.setHelperText("");
+//                    }else {
+//                        passwordLayout.setHelperText("");
+//                        passwordLayout.setError("Weak Password, should include minimum one special character");
+//                    }
+//                }else {
+//                    passwordLayout.setHelperText("Enter Minimum of 6 character");
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
 
 
 
 
         //if the user enters a wrong password and click login Button
-        View alertIncorrectPasswordDialog = LayoutInflater.from(LoginActivity.this).inflate(R.layout.incorrect_password_dialog, null);
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
-        alertDialog.setView(alertIncorrectPasswordDialog);
-        resetPasswordBtn = (Button) alertIncorrectPasswordDialog.findViewById(R.id.resetPasswordBtnID);
-
-
-        final AlertDialog dialog = alertDialog.create();
-
-        loginBtn = (Button) findViewById(R.id.loginBtnID);
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }
-        });
+//        View alertIncorrectPasswordDialog = LayoutInflater.from(LoginActivity.this).inflate(R.layout.incorrect_password_dialog, null);
+//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
+//        alertDialog.setView(alertIncorrectPasswordDialog);
+//        resetPasswordBtn = (Button) alertIncorrectPasswordDialog.findViewById(R.id.resetPasswordBtnID);
+//
+//
+//        final AlertDialog dialog = alertDialog.create();
+//
+//        loginBtn = (Button) findViewById(R.id.loginBtnID);
+//        loginBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                dialog.show();
+//            }
+//        });
 
         //
 
@@ -154,7 +150,5 @@ public class LoginActivity extends AppCompatActivity {
                 //showWrongPasswordDialog("login", "Forget Password", "Did you forget it", "Reset");
             }
         });
-
-        //
     }
 }
