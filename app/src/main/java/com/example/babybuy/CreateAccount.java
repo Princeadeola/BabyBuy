@@ -27,7 +27,6 @@ public class CreateAccount extends AppCompatActivity {
     Button createAccountBtn;
     EditText emailEditTxt, phoneEditTxt, passwordEditTx, confirmPasswordEditTxt;
     Boolean isUserDataValid = false;
-
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -47,20 +46,18 @@ public class CreateAccount extends AppCompatActivity {
         confirmPasswordEditTxt = findViewById(R.id.confirmPasswordEditText);
         firebaseAuth = FirebaseAuth.getInstance();
 
-
-        validateUserData(emailEditTxt);
-        validateUserData(phoneEditTxt);
-        validateUserData(passwordEditTx);
-        validateUserData(confirmPasswordEditTxt);
-
-
-        //checks if the password and confirm password are matched with each other
-        if (!passwordEditTx.getText().toString().equals(confirmPasswordEditTxt.getText().toString())){
-            isUserDataValid = false;
-            confirmPasswordEditTxt.setError("Not matched with password");
-        }else {
-            isUserDataValid = true;
-        }
+//        validateUserData(emailEditTxt);
+//        validateUserData(phoneEditTxt);
+//        validateUserData(passwordEditTx);
+//        validateUserData(confirmPasswordEditTxt);
+//
+//        //checks if the password and confirm password are matched with each other
+//        if (!passwordEditTx.getText().toString().equals(confirmPasswordEditTxt.getText().toString())){
+//            isUserDataValid = false;
+//            confirmPasswordEditTxt.setError("Not matched with password");
+//        }else {
+//            isUserDataValid = true;
+//        }
 
 //        if (isUserDataValid){
 //            firebaseAuth.createUserWithEmailAndPassword(emailEditTxt.getText().toString(), passwordEditTx.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -82,11 +79,26 @@ public class CreateAccount extends AppCompatActivity {
         createAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CreateAccount.this, VerificationActivity.class);
-                startActivity(intent);
+                validateUserData(emailEditTxt);
+                validateUserData(phoneEditTxt);
+                validateUserData(passwordEditTx);
+                validateUserData(confirmPasswordEditTxt);
+
+                //checks if the password and confirm password are matched with each other
+                if (!passwordEditTx.getText().toString().equals(confirmPasswordEditTxt.getText().toString())){
+                    confirmPasswordEditTxt.setError("Not matched with password");
+                }
+
+                String emailText = emailEditTxt.getText().toString();
+                String phoneText = phoneEditTxt.getText().toString();
+                String passwordText = passwordEditTx.getText().toString();
+                String confirmPasswordText = confirmPasswordEditTxt.getText().toString();
+
+
+                //Intent intent = new Intent(CreateAccount.this, VerificationActivity.class);
+                //startActivity(intent);
             }
         });
-
         // create account authentication ends
 
         loginTextFromCreateAccount.setOnClickListener(new View.OnClickListener() {

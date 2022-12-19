@@ -1,33 +1,70 @@
 {
   "project_info": {
-    "project_number": "300601777537",
-    "project_id": "babybuy-39592",
-    "storage_bucket": "babybuy-39592.appspot.com"
+    "project_number": "268677463656",
+    "project_id": "babybuy-592",
+    "storage_bucket": "babybuy-592.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:300601777537:android:03d496b5a35658e2529c80",
+        "mobilesdk_app_id": "1:268677463656:android:e004575a5fe04640b145dd",
         "android_client_info": {
           "package_name": "com.example.babybuy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "300601777537-mq4b94fg0aig5l1rv99l5i212ird062q.apps.googleusercontent.com",
+          "client_id": "268677463656-2fv02r3qtcvc37h6l9amchf4is0qgend.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDUedKQEJGK6eJr23XLbcOgN5-tJUKU-5c"
+          "current_key": "AIzaSyBNaXHVCS3sjp2VTwsr8VuP8hqTBER15jo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "300601777537-mq4b94fg0aig5l1rv99l5i212ird062q.apps.googleusercontent.com",
+              "client_id": "268677463656-2fv02r3qtcvc37h6l9amchf4is0qgend.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268677463656:android:a57f15309f832194b145dd",
+        "android_client_info": {
+          "package_name": "com.princeadeola.babybuy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268677463656-qrnv67l7mtkhvan9ri5c2ba2ucq36flr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.princeadeola.babybuy",
+            "certificate_hash": "f075edb2903a0b9400e1ca751dc72568d7dab799"
+          }
+        },
+        {
+          "client_id": "268677463656-2fv02r3qtcvc37h6l9amchf4is0qgend.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNaXHVCS3sjp2VTwsr8VuP8hqTBER15jo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268677463656-2fv02r3qtcvc37h6l9amchf4is0qgend.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
