@@ -1,5 +1,6 @@
 package com.example.babybuy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
@@ -16,11 +17,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,6 +40,9 @@ public class LoginActivity extends AppCompatActivity {
     Button loginBtn, resetPasswordBtn;
     Dialog dialog;
 
+    //access realtime database
+    DatabaseReference dbReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +50,50 @@ public class LoginActivity extends AppCompatActivity {
 
         forgotPasswordTxt = findViewById(R.id.forgotPasswordID);
         createAccountTxt = findViewById(R.id.createAccountFromLoginTxtID);
-        phoneEditText = findViewById(R.id.phoneEditText);
+        phoneEditText = findViewById(R.id.phoneEditTextInLoginID);
         passwordEditText = findViewById(R.id.passwordEditText);
         passwordLayout = findViewById(R.id.passwordLayoutContainer);
+        loginBtn = findViewById(R.id.loginBtnID);
+
+        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validateUserData(phoneEditText);
+                validateUserData(passwordEditText);
+
+                String phoneText = phoneEditText.getText().toString();
+
+                dbReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        //this will check if the number already exist in my DB
+                        if (snapshot.hasChild(phoneText)){
+                            // since I have confirm that the number is in the firebase database
+                            // now I can get the password and compare with the passwordEditTxt input
+                            final String getUserPassword = snapshot.child(phoneText).child("password").getValue(String.class);
+
+                            if (getUserPassword.equals(passwordEditText)){
+                                Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
+
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
+                            }else {
+                                Toast.makeText(LoginActivity.this, "Logged in not successful, Try again", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(LoginActivity.this, "incorrect inputs, Try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
 
         forgotPasswordTxt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +110,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         // watch when the edittext is clicked, typing or wrong character for phone EditText
 //        phoneEditText.addTextChangedListener(new TextWatcher() {
@@ -143,12 +194,19 @@ public class LoginActivity extends AppCompatActivity {
 
         //
 
-        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.cancel();
-                //showWrongPasswordDialog("login", "Forget Password", "Did you forget it", "Reset");
-            }
-        });
+//        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.cancel();
+//                //showWrongPasswordDialog("login", "Forget Password", "Did you forget it", "Reset");
+//            }
+//        });
+    }
+
+    //this method validates if use have entered correct input
+    public void validateUserData(EditText input){
+        if (input.getText().toString().isEmpty()){
+            input.setError("Required Field.");
+        }
     }
 }

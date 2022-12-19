@@ -51,7 +51,7 @@ public class CreateAccount extends AppCompatActivity {
 
         fullNameTxt = findViewById(R.id.fullNameEditText);
         emailEditTxt = findViewById(R.id.EmailEditText);
-        phoneEditTxt = findViewById(R.id.phoneEditText);
+        phoneEditTxt = findViewById(R.id.phoneEditTextInCreateAccountID);
         passwordEditTx = findViewById(R.id.passwordEditText);
         confirmPasswordEditTxt = findViewById(R.id.confirmPasswordEditText);
         firebaseAuth = FirebaseAuth.getInstance();

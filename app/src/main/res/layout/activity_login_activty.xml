@@ -38,7 +38,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phoneEditText"
+                android:id="@+id/phoneEditTextInLoginID"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:backgroundTint="#A0A6A9"
