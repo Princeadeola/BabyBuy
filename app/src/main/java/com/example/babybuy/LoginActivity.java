@@ -1,6 +1,7 @@
 package com.example.babybuy;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -24,8 +25,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +50,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final int RC_SIGN_IN = 234;
     TextView forgotPasswordTxt, createAccountTxt;
     TextInputLayout phoneLayout, passwordLayout;
     TextInputEditText phoneEditText, passwordEditText;
@@ -45,6 +59,9 @@ public class LoginActivity extends AppCompatActivity {
 
     //access realtime database
     DatabaseReference dbReference;
+    private FirebaseAuth firebaseAuth;
+    private GoogleSignInClient mGoogleSignInClient;
+    private Button continueWithGoogleBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +73,17 @@ public class LoginActivity extends AppCompatActivity {
         phoneEditText = findViewById(R.id.phoneEditTextInLoginID);
         passwordEditText = findViewById(R.id.passwordEditText);
         passwordLayout = findViewById(R.id.passwordLayoutContainer);
+        continueWithGoogleBtn = findViewById(R.id.continueWithGoogleBtnID);
         loginBtn = findViewById(R.id.loginBtnID);
 
+//        request(); // this sends request to google
+//
+//        continueWithGoogleBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                signIn();
+//            }
+//        });
 
         final TextInputLayout input = (TextInputLayout) findViewById(R.id.phoneLayoutContainer);
         input.setErrorEnabled(true);
@@ -73,35 +99,40 @@ public class LoginActivity extends AppCompatActivity {
                 String phoneText = phoneEditText.getText().toString();
                 String passwordText = passwordEditText.getText().toString();
 
-                dbReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        //this will check if the number already exist in my DB
-                        if (snapshot.hasChild(phoneText)){
-                            // since I have confirm that the number is in the firebase database
-                            // now I can get the password and compare with the passwordEditTxt input
-                            final String getUserPassword = snapshot.child(phoneText).child("password").getValue(String.class);
+                if (phoneText.isEmpty() || passwordText.isEmpty()){
+                    Toast.makeText(LoginActivity.this, "All field required", Toast.LENGTH_SHORT).show();
+                }else {
+                    dbReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            //this will check if the number already exist in my DB
+                            if (snapshot.hasChild(phoneText)){
+                                // since I have confirm that the number is in the firebase database
+                                // now I can get the password and compare with the passwordEditTxt input
+                                final String getUserPassword = snapshot.child(phoneText).child("password").getValue(String.class);
 
-                            if (getUserPassword.equals(passwordText)){
-                                Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
+                                if (getUserPassword.equals(passwordText)){
+                                    Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
 
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                finish();
+                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                    finish();
+                                }else {
+                                    Toast.makeText(LoginActivity.this, "Logged in not successful, Try again", Toast.LENGTH_SHORT).show();
+                                }
                             }else {
-                                Toast.makeText(LoginActivity.this, "Logged in not successful, Try again", Toast.LENGTH_SHORT).show();
+                                setErrorTextColor(input, ContextCompat.getColor(getApplicationContext(), android.R.color.darker_gray));
+                                input.setError("Please enter a complete number and include country code without(+) !");
+                                Toast.makeText(LoginActivity.this, "phone number not registered, Try again", Toast.LENGTH_SHORT).show();
                             }
-                        }else {
-                            setErrorTextColor(input, ContextCompat.getColor(getApplicationContext(), android.R.color.darker_gray));
-                            input.setError("Funk you!");
-                            Toast.makeText(LoginActivity.this, "phone number not registered, Try again", Toast.LENGTH_SHORT).show();
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
+                }
+
             }
         });
 
@@ -234,4 +265,59 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+//    //method to handle request to google
+//    private void request(){
+//        //Configure google sign in
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//
+//        //Build a googleSignInClient with the option specified by geo
+//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+//    }
+//
+//    private void signIn(){
+//        Intent sigInIntent = mGoogleSignInClient.getSignInIntent();
+//        startActivityForResult(sigInIntent, RC_SIGN_IN);
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        // Result return from launching the intent from GoogleSignInApi.getSignInIntent()
+//        if (requestCode == RC_SIGN_IN){
+//            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+//            try {
+//                //Google sign in was successful, authenticate with firebase
+//                GoogleSignInAccount account = task.getResult(ApiException.class);
+//                fireBaseAuthWithGoogle(account);
+//            }catch (ApiException e){
+//                //Google sign in failed, update UI Appropriately
+//
+//                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
+//
+//    private void fireBaseAuthWithGoogle(GoogleSignInAccount account) {
+//        AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+//        firebaseAuth.signInWithCredential(credential)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()){
+//                            //sign in success, update UI with the signed in user information
+//                            FirebaseUser user = firebaseAuth.getCurrentUser();
+//                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                            startActivity(intent);
+//                        }else {
+//                            // if sign in fails, display a message to the user
+//                            Toast.makeText(LoginActivity.this, "Sorry, authentication failed", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//    }
 }

@@ -11,8 +11,15 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 ///**
 // * A simple {@link Fragment} subclass.
@@ -24,6 +31,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class HomeFragment extends Fragment {
     private FloatingActionButton mainFabIcon, assignedIcon, newListIcon;
     private Animation fabOpenAnim, fabCloseAnim, rotateOpen, rotateClose;
+    TextView homeGreetingTxt, homeProfileNameTxt;
+    ImageView notificationIcon;
     Button goToChecklistBtn;
     View mainFragmentHolder;
     private boolean isOpen;
@@ -84,6 +93,16 @@ public class HomeFragment extends Fragment {
         assignedIcon = mainFragmentHolder.findViewById(R.id.fabAssignedIconID);
         newListIcon = mainFragmentHolder.findViewById(R.id.fabCreateNewListIconID);
         goToChecklistBtn = mainFragmentHolder.findViewById(R.id.checkListBtnID);
+        homeGreetingTxt = mainFragmentHolder.findViewById(R.id.homeGreetingTextID);
+        homeProfileNameTxt = mainFragmentHolder.findViewById(R.id.homeProfileNameTextID);
+        notificationIcon = mainFragmentHolder.findViewById(R.id.notificationIconID);
+
+        //Here I want to get the detail of the user that just signed in with google
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(requireContext());
+        if (signInAccount != null){
+            String userFullName = signInAccount.getFamilyName() + " " + signInAccount.getGivenName();
+            homeProfileNameTxt.setText(userFullName);
+        }
 
         fabOpenAnim = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_open);
         fabCloseAnim = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_close);
@@ -95,6 +114,13 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(container.getContext(), CheckListActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        notificationIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
             }
         });
 
@@ -127,5 +153,12 @@ public class HomeFragment extends Fragment {
 
 
         return mainFragmentHolder;
+    }
+
+    // to logout when logout btn is clicked
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getContext(), HaveAnAccount.class);
+        startActivity(intent);
     }
 }

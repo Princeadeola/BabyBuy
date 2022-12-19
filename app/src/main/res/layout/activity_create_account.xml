@@ -95,9 +95,9 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
             app:boxStrokeColor="@color/borderColor"
-            app:hintTextColor="@color/borderColor"
-            app:helperText="Include country code without (+)"
-            app:helperTextTextColor="#4E4E4E">
+            app:helperText="Please include country code without (+)"
+            app:helperTextTextColor="#4E4E4E"
+            app:hintTextColor="@color/borderColor">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneEditTextInCreateAccountID"
