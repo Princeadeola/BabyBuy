@@ -21,13 +21,21 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class CreateAccount extends AppCompatActivity {
     TextView termTxt, loginTextFromCreateAccount;
     Button createAccountBtn;
-    EditText emailEditTxt, phoneEditTxt, passwordEditTx, confirmPasswordEditTxt;
+    EditText fullNameTxt, emailEditTxt, phoneEditTxt, passwordEditTx, confirmPasswordEditTxt;
     Boolean isUserDataValid = false;
     FirebaseAuth firebaseAuth;
+
+    //access realtime database
+    DatabaseReference dbReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +45,11 @@ public class CreateAccount extends AppCompatActivity {
         termTxt = findViewById(R.id.termTxtID);
         createAccountBtn =  findViewById(R.id.createAccountBtnID);
         loginTextFromCreateAccount = findViewById(R.id.loginFromCreateAccountTxtID);
+        dbReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://babybuy-592-default-rtdb.firebaseio.com/");
 
         //create account authentication starts
 
+        fullNameTxt = findViewById(R.id.fullNameEditText);
         emailEditTxt = findViewById(R.id.EmailEditText);
         phoneEditTxt = findViewById(R.id.phoneEditText);
         passwordEditTx = findViewById(R.id.passwordEditText);
@@ -79,24 +89,49 @@ public class CreateAccount extends AppCompatActivity {
         createAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                validateUserData(fullNameTxt);
                 validateUserData(emailEditTxt);
                 validateUserData(phoneEditTxt);
                 validateUserData(passwordEditTx);
                 validateUserData(confirmPasswordEditTxt);
 
-                //checks if the password and confirm password are matched with each other
-                if (!passwordEditTx.getText().toString().equals(confirmPasswordEditTxt.getText().toString())){
-                    confirmPasswordEditTxt.setError("Not matched with password");
-                }
-
+                String fullNameText = fullNameTxt.getText().toString();
                 String emailText = emailEditTxt.getText().toString();
                 String phoneText = phoneEditTxt.getText().toString();
                 String passwordText = passwordEditTx.getText().toString();
                 String confirmPasswordText = confirmPasswordEditTxt.getText().toString();
 
+                //checks if the password and confirm password are matched with each other
+                if (!passwordEditTx.getText().toString().equals(confirmPasswordEditTxt.getText().toString())){
+                    confirmPasswordEditTxt.setError("Not matched with password");
 
-                //Intent intent = new Intent(CreateAccount.this, VerificationActivity.class);
-                //startActivity(intent);
+                }else{
+                    dbReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            if (snapshot.hasChild(phoneText)){
+                                Toast.makeText(CreateAccount.this, "Phone is already registered!", Toast.LENGTH_SHORT).show();
+                            }else {
+                                // sending data to realtime database, we are using phone number as unique identity of every year
+                                // so all the other details of user comes under phone number
+                                dbReference.child("users").child(phoneText).child("fullname").setValue(fullNameText);
+                                dbReference.child("users").child(phoneText).child("email").setValue(emailText);
+                                dbReference.child("users").child(phoneText).child("password").setValue(passwordText);
+
+                                Toast.makeText(CreateAccount.this, "User created successfully!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+
+                // startActivity(new Intent(CreateAccount.this, VerificationActivity.class));
             }
         });
         // create account authentication ends

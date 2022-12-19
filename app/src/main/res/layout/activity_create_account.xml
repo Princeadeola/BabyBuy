@@ -11,17 +11,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:text="New account"
         android:textColor="@color/text_black"
         android:textSize="35sp"
         android:textStyle="bold" />
 
     <RelativeLayout
-        android:id="@+id/EmailContainerID"
+        android:id="@+id/fullNameContainerID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/greetingID">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fullNameLayoutContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@color/borderColor"
+            app:helperText=""
+            app:helperTextTextColor="@color/light_red"
+            app:hintTextColor="@color/borderColor">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="#A0A6A9"
+                android:hint="Enter Full Name"
+                android:inputType="textCapWords"
+                android:lines="1"
+                android:padding="10dp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/EmailContainerID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fullNameContainerID">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/EmailLayoutContainer"
@@ -41,7 +74,7 @@
                 android:layout_height="60dp"
                 android:backgroundTint="#A0A6A9"
                 android:hint="Enter Email Address"
-                android:inputType="number"
+                android:inputType="textEmailAddress"
                 android:lines="1"
                 android:padding="10dp" />
 
