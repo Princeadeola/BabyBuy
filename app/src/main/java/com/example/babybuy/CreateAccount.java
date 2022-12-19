@@ -75,12 +75,12 @@ public class CreateAccount extends AppCompatActivity {
 //                    verifyPhoneNumberIntent.putExtra("number",  phoneEditTxt.getText().toString());
 //                    startActivity(verifyPhoneNumberIntent);
 //                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//                    Toast.makeText(CreateAccount.this, "Error ! " + e.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//            });
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(CreateAccount.this, "Error ! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
 
