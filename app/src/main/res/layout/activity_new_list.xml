@@ -64,56 +64,59 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/selectCategoryLayoutID"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/listTextID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="List"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            />
+            android:textColor="@color/text_black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_below="@id/listTextID"
-            android:background="#F9FBFF">
+            android:layout_marginTop="10dp"
+            android:background="#F9FBFF"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/layoutWithoutSendBtnID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FEFEFF"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:paddingBottom="20dp">
+                android:layout_marginEnd="10dp"
+                android:background="#FEFEFF"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="30dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/x_close_circle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
-                    />
+                    android:src="@drawable/x_close_circle" />
 
                 <RelativeLayout
                     android:id="@+id/nameLayoutID"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
+
                     <TextView
                         android:id="@+id/itemNameTxtID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:text="Name"
-                        android:layout_marginTop="10dp"
-                        android:textSize="20sp"
-                        />
+                        android:textColor="@color/text_black"
+                        android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/itemNameEditTextID"
@@ -131,16 +134,16 @@
                     android:id="@+id/amountLayoutID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/nameLayoutID"
-                    >
+                    android:layout_toRightOf="@id/nameLayoutID">
+
                     <TextView
                         android:id="@+id/itemAmountTxtID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:text="Amount"
-                        android:textSize="20sp"
-                        android:layout_marginTop="10dp"
-                        />
+                        android:textColor="@color/text_black"
+                        android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/itemAmountEditTextID"
@@ -148,6 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/itemAmountTxtID"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
                         android:background="@drawable/new_item_edit_text_bg"
                         android:padding="10dp" />
 
@@ -157,7 +161,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="55dp"
+                    android:layout_marginTop="60dp"
                     android:layout_toEndOf="@id/amountLayoutID"
                     android:src="@drawable/gray_send" />
 
@@ -165,22 +169,36 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/addMoreBtnID"
-                android:layout_width="170dp"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_below="@id/layoutWithoutSendBtnID"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/blue_border_colored_bg"
+                android:background="@drawable/new_list_lined_bg"
                 android:paddingStart="50dp"
                 android:paddingEnd="50dp"
                 android:text="Add more"
-                android:textSize="12sp"
                 android:textColor="#00599A"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@id/layoutWithoutSendBtnID"
-                />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveBtnID"
+        android:layout_width="361dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/inactive_rounded_button"
+        android:text="Save"
+        android:textColor="#A0A6A9"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"/>
 
 
 
