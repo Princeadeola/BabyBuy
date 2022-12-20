@@ -4,6 +4,184 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewListActivity">
+    tools:context=".NewListActivity"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginStart="10dp">
+
+    <RelativeLayout
+        android:id="@+id/arrowAndAllItemsTextLayoutID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="0dp"
+        >
+
+        <ImageView
+            android:id="@+id/arrowLeftID"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="100dp"
+            android:layout_toEndOf="@id/arrowLeftID"
+            android:text="All Items"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/selectCategoryLayoutID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="30dp"
+        android:hint="Select Category"
+        android:layout_below="@id/arrowAndAllItemsTextLayoutID"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextViewID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectCategoryLayoutID"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp">
+
+        <TextView
+            android:id="@+id/listTextID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/listTextID"
+            android:background="#F9FBFF">
+
+            <RelativeLayout
+                android:id="@+id/layoutWithoutSendBtnID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FEFEFF"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/x_close_circle"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/nameLayoutID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:id="@+id/itemNameTxtID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        />
+
+                    <EditText
+                        android:id="@+id/itemNameEditTextID"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/itemNameTxtID"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/new_item_edit_text_bg"
+                        android:padding="10dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/amountLayoutID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/nameLayoutID"
+                    >
+                    <TextView
+                        android:id="@+id/itemAmountTxtID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amount"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <EditText
+                        android:id="@+id/itemAmountEditTextID"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/itemAmountTxtID"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/new_item_edit_text_bg"
+                        android:padding="10dp" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="55dp"
+                    android:layout_toEndOf="@id/amountLayoutID"
+                    android:src="@drawable/gray_send" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addMoreBtnID"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/blue_border_colored_bg"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="Add more"
+                android:textSize="12sp"
+                android:textColor="#00599A"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/layoutWithoutSendBtnID"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
 
 </RelativeLayout>
