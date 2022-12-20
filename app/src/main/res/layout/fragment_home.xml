@@ -719,9 +719,8 @@
                         android:id="@+id/listViewID"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        tools:listitem="@layout/list_item"
                         android:visibility="invisible"
-                        />
+                        tools:listitem="@layout/list_item" />
 
                     <ImageView
                         android:id="@+id/noItemYetImageID"
