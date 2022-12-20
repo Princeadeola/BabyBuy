@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.babybuy">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +16,14 @@
         android:theme="@style/Theme.BabyBuy"
         tools:targetApi="31">
         <activity
+            android:name=".NewListActivity"
+            android:exported="false" />
+        <activity
             android:name=".CheckListActivity"
             android:exported="false" />
         <activity
             android:name=".ChangeUserPassword"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ResetPasswordVerification"
             android:exported="false" />
@@ -41,7 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"
