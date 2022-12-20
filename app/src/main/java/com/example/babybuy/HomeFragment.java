@@ -109,6 +109,14 @@ public class HomeFragment extends Fragment {
         rotateOpen = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_rotate_open);
         rotateClose = AnimationUtils.loadAnimation(container.getContext(), R.anim.fab_rotate_close);
 
+        newListIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(container.getContext(), NewListActivity.class);
+                startActivity(intent);
+            }
+        });
+
         goToChecklistBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
