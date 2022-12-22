@@ -9,14 +9,14 @@
     android:layout_marginEnd="20dp"
     android:layout_marginStart="10dp">
 
-    <RelativeLayout
-        android:id="@+id/arrowAndAllItemsTextLayoutID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="0dp"
-        >
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/arrowAndAllItemsTextLayoutID"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="0dp"-->
+<!--        >-->
 
         <ImageView
             android:id="@+id/arrowLeftID"
