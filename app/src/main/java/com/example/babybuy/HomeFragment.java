@@ -117,6 +117,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //
         goToChecklistBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
