@@ -59,7 +59,6 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -154,7 +153,6 @@
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/new_item_edit_text_bg"
                         android:padding="10dp" />
-
                 </RelativeLayout>
 
                 <ImageView
