@@ -116,7 +116,6 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         
         goToChecklistBtn.setOnClickListener(new View.OnClickListener() {
             @Override
