@@ -125,6 +125,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //
         notificationIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
