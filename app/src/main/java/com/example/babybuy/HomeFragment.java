@@ -124,7 +124,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        
+
         notificationIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
